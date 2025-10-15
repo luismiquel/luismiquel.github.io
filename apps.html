@@ -2,70 +2,49 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis Apps Web | Luis Miquel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="logo-lm.png">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="logo-lm.png">
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
   <header>
-    <nav>
+    <nav><div class="wrap">
       <ul>
-        <li><img src="logo-lm.png" alt="Logo LM" width="40"></li>
+        <li><a href="index.html" aria-label="Inicio"><img src="logo-lm.png" alt="Logo LM" width="40"></a></li>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html">Sobre mí</a></li>
-        <li><a href="apps.html">Mis Apps Web</a></li>
+        <li><a href="apps.html" aria-current="page">Mis Apps Web</a></li>
         <li><a href="why.html">¿Por qué elegirme?</a></li>
         <li><a href="certificates.html">Certificados</a></li>
         <li><a href="contact.html">Contacto</a></li>
       </ul>
-    </nav>
+    </div></nav>
   </header>
 
-  <section class="content">
+  <main id="main" class="content">
     <h1>Mis Apps Web</h1>
-    <p>Aquí puedes ver algunos de los proyectos que he desarrollado como parte de mi aprendizaje.</p>
-
     <div class="apps">
       <div class="app-card">
         <h3>App 1</h3>
-        <p>Aplicación de mi recetario web.</p>
-        <a href="https://luismiquel.mi-recetario.com/app1" target="_blank">Ver App 1</a>
+        <p>Descripción breve del proyecto.</p>
+        <a href="#" target="_blank" rel="noopener">Abrir</a>
       </div>
-
       <div class="app-card">
         <h3>App 2</h3>
-        <p>Proyecto de práctica de desarrollo web.</p>
-        <a href="https://luismiquel.mi-recetario.com/app2" target="_blank">Ver App 2</a>
+        <p>Descripción breve del proyecto.</p>
+        <a href="#" target="_blank" rel="noopener">Abrir</a>
       </div>
-
       <div class="app-card">
         <h3>App 3</h3>
-        <p>Otra aplicación creada en mi proceso de aprendizaje.</p>
-        <a href="https://luismiquel.mi-recetario.com/app3" target="_blank">Ver App 3</a>
-      </div>
-
-      <!-- NUEVOS PROYECTOS -->
-      <div class="app-card">
-        <h3>Musculación en Casa</h3>
-        <p>Aplicación para entrenar en casa con rutinas simples y efectivas.</p>
-        <a href="https://github.com/luismiquel/musculacion-en-casa" target="_blank">Ver en GitHub</a>
-      </div>
-
-      <div class="app-card">
-        <h3>Rutinas Casa</h3>
-        <p>Proyecto enfocado en rutinas de ejercicio accesibles desde casa.</p>
-        <a href="https://github.com/luismiquel/rutinas-casa" target="_blank">Ver en GitHub</a>
+        <p>Descripción breve del proyecto.</p>
+        <a href="#" target="_blank" rel="noopener">Abrir</a>
       </div>
     </div>
+  </main>
 
-    <div style="text-align:center; margin-top:40px;">
-      <a href="https://github.com/luismiquel" target="_blank" class="btn">Ver más proyectos en GitHub</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Luis Miquel - Portafolio</p>
-  </footer>
+  <footer><p>© <span id="y"></span> Luis Miquel</p></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>

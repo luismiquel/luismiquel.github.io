@@ -4,69 +4,48 @@
   <meta charset="UTF-8">
   <title>Luis Miquel | Vendedor Digital Autodidacta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Portafolio de Luis Miquel. Vendedor digital autodidacta: proyectos web, apps, certificados y contacto.">
+  <meta name="description" content="Portafolio de Luis Miquel. Proyectos web, certificados y contacto.">
   <link rel="icon" type="image/png" href="logo-lm.png">
   <link rel="stylesheet" href="style.css">
-  <!-- Social Preview -->
   <meta property="og:title" content="Luis Miquel | Vendedor Digital Autodidacta">
-  <meta property="og:description" content="Aprendo creando. Innovo compartiendo. Portafolio y proyectos.">
+  <meta property="og:description" content="Aprendo creando. Innovo compartiendo.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://luismiquel.github.io/">
   <meta property="og:image" content="logo-lm.png">
-  <meta name="twitter:card" content="summary">
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
-  <header class="site-header">
-    <nav class="nav wrap" aria-label="Principal">
-      <button class="nav__toggle" aria-expanded="false" aria-controls="menu">☰</button>
-      <ul id="menu" class="nav__list">
-        <li class="nav__logo">
-          <a href="index.html" aria-label="Inicio">
-            <img src="logo-lm.png" alt="Logo LM" width="40" height="40">
-          </a>
-        </li>
-        <li><a href="index.html" aria-current="page">Inicio</a></li>
-        <li><a href="about.html">Sobre mí</a></li>
-        <li><a href="apps.html">Mis Apps Web</a></li>
-        <li><a href="why.html">¿Por qué elegirme?</a></li>
-        <li><a href="certificates.html">Certificados</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header>
+    <nav>
+      <div class="wrap">
+        <ul>
+          <li><a href="index.html" aria-label="Inicio"><img src="logo-lm.png" alt="Logo LM" width="40" height="40"></a></li>
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="about.html">Sobre mí</a></li>
+          <li><a href="apps.html">Mis Apps Web</a></li>
+          <li><a href="why.html">¿Por qué elegirme?</a></li>
+          <li><a href="certificates.html">Certificados</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
-  <main id="contenido">
-    <section class="hero wrap">
-      <h1 class="hero__title">Luis Miquel</h1>
-      <h2 class="hero__subtitle">Vendedor Digital Autodidacta</h2>
-      <p class="hero__text">Aprendo creando. Innovo compartiendo.</p>
-      <div class="hero__cta">
+  <main id="main">
+    <section class="hero">
+      <h1>Luis Miquel</h1>
+      <h2>Vendedor Digital Autodidacta</h2>
+      <p>Aprendo creando. Innovo compartiendo.</p>
+      <div>
         <a href="apps.html" class="btn">Ver mis Apps Web</a>
-        <!-- Añade tu PDF a /assets y ajusta la ruta si lo cambias -->
-        <a href="assets/Certificados_Luismi_Con_Portada.pdf" class="btn btn--ghost" target="_blank" rel="noopener">Descargar dossier (PDF)</a>
-        <a href="https://www.credly.com/users/luis-miguel-garcia-de-las-morenas" class="btn btn--ghost" target="_blank" rel="noopener">Mi perfil en Credly</a>
+        <a href="assets/Certificados_Luismi_Con_Portada.pdf" class="btn btn--ghost" target="_blank" rel="noopener">Dossier (PDF)</a>
+        <a href="https://www.credly.com/users/luis-miguel-garcia-de-las-morenas" class="btn btn--ghost" target="_blank" rel="noopener">Mi Credly</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer wrap">
-    <p>© <span id="y"></span> Luis Miquel — Portafolio</p>
+  <footer>
+    <p>© <span id="y"></span> Luis Miquel - Portafolio</p>
   </footer>
-
-  <script>
-    // Año dinámico
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Toggle menú móvil accesible
-    const btn = document.querySelector('.nav__toggle');
-    const menu = document.getElementById('menu');
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      menu.classList.toggle('is-open');
-    });
-  </script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>

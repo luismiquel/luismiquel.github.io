@@ -2,55 +2,50 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>¿Por qué elegirme? | Luis Miquel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="logo-lm.png">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="logo-lm.png">
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
   <header>
-    <nav>
+    <nav><div class="wrap">
       <ul>
-        <li><img src="logo-lm.png" alt="Logo LM" width="40"></li>
+        <li><a href="index.html" aria-label="Inicio"><img src="logo-lm.png" alt="Logo LM" width="40"></a></li>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html">Sobre mí</a></li>
         <li><a href="apps.html">Mis Apps Web</a></li>
-        <li><a href="why.html">¿Por qué elegirme?</a></li>
+        <li><a href="why.html" aria-current="page">¿Por qué elegirme?</a></li>
         <li><a href="certificates.html">Certificados</a></li>
         <li><a href="contact.html">Contacto</a></li>
       </ul>
-    </nav>
+    </div></nav>
   </header>
 
-  <section class="content">
+  <main id="main" class="content">
     <h1>¿Por qué elegirme?</h1>
-    <p style="text-align:center; margin-bottom:30px;">
-      Estas son las cualidades que me diferencian y que aporto a cada proyecto en el que participo.
-    </p>
-
     <div class="why">
       <div class="card">
-        <h3>Innovación constante</h3>
-        <p>Siempre busco nuevas formas de mejorar y aportar valor en cada proyecto.</p>
+        <h3>Aprendizaje ágil</h3>
+        <p>Capacidad para absorber y aplicar conocimientos rápidamente.</p>
       </div>
       <div class="card">
-        <h3>Aprendizaje continuo</h3>
-        <p>Me capacito con certificaciones y prácticas reales para crecer día a día.</p>
+        <h3>Enfoque práctico</h3>
+        <p>Proyectos simples, útiles y pensados para móvil.</p>
       </div>
       <div class="card">
-        <h3>Comunicación clara</h3>
-        <p>Trabajo en equipo y transmito ideas de manera sencilla y efectiva.</p>
+        <h3>Accesibilidad</h3>
+        <p>Diseños claros, contraste adecuado y navegación sencilla.</p>
       </div>
       <div class="card">
-        <h3>Pasión por la tecnología</h3>
-        <p>Disfruto aplicando herramientas digitales para resolver problemas reales.</p>
+        <h3>Compromiso</h3>
+        <p>Me centro en resultados y mejoras continuas.</p>
       </div>
     </div>
-  </section>
+  </main>
 
-  <footer>
-    <p>© 2025 Luis Miquel - Portafolio</p>
-  </footer>
+  <footer><p>© <span id="y"></span> Luis Miquel</p></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
-

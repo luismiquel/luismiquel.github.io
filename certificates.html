@@ -2,66 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certificados e Insignias | Luis Miquel</title>
+  <title>Certificados | Luis Miquel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="logo-lm.png">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="logo-lm.png">
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
   <header>
-    <nav>
+    <nav><div class="wrap">
       <ul>
-        <li><img src="logo-lm.png" alt="Logo LM" width="40"></li>
+        <li><a href="index.html" aria-label="Inicio"><img src="logo-lm.png" alt="Logo LM" width="40"></a></li>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html">Sobre mí</a></li>
         <li><a href="apps.html">Mis Apps Web</a></li>
         <li><a href="why.html">¿Por qué elegirme?</a></li>
-        <li><a href="certificates.html">Certificados</a></li>
+        <li><a href="certificates.html" aria-current="page">Certificados</a></li>
         <li><a href="contact.html">Contacto</a></li>
       </ul>
-    </nav>
+    </div></nav>
   </header>
 
-  <section class="content">
+  <main id="main" class="content">
     <h1>Certificados e Insignias</h1>
-    <p style="text-align:center; margin-bottom:30px;">
-      Una selección de mis logros en tecnología, cloud e inteligencia artificial.  
-      Descarga el PDF para ver todos en detalle.
+
+    <p style="text-align:center;">
+      <a class="btn" href="assets/Certificados_Luismi_Con_Portada.pdf" target="_blank" rel="noopener">Descargar Dossier (PDF)</a>
+      <a class="btn btn--ghost" href="https://www.credly.com/users/luis-miguel-garcia-de-las-morenas" target="_blank" rel="noopener">Ver perfil en Credly</a>
     </p>
 
-    <!-- Insignias -->
-    <div class="certificates">
-      <div class="certificate-card">
-        <h3>AWS Cloud Essentials</h3>
-        <p>Insignia obtenida en 2025.</p>
-      </div>
-      <div class="certificate-card">
+    <h2>Insignias oficiales (Credly)</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <img src="assets/aws-knowledge-aws-for-games-cloud-game-development.png" alt="Insignia AWS for Games: Cloud Game Development">
         <h3>AWS for Games: Cloud Game Development</h3>
-        <p>Insignia obtenida en 2025.</p>
+        <p>Insignia verificada en Credly.</p>
+      </div>
+      <div class="card">
+        <img src="assets/aws-knowledge-cloud-essentials.png" alt="Insignia AWS Cloud Essentials">
+        <h3>AWS Cloud Essentials</h3>
+        <p>Insignia verificada en Credly.</p>
       </div>
     </div>
 
-    <!-- Certificados destacados -->
-    <div class="certificates" style="margin-top:40px;">
-      <div class="certificate-card">
-        <h3>Experto en ChatGPT</h3>
-        <p>Certificación obtenida en 2025.</p>
-      </div>
-      <div class="certificate-card">
-        <h3>AWS Cloud Practitioner Essentials</h3>
-        <p>Certificación obtenida en 2025.</p>
-      </div>
+    <h2>Certificados destacados</h2>
+    <div class="certificates">
+      <div class="certificate-card"><h3>Solutions Architect – Professional (Prep)</h3><p>Jun 2025</p></div>
+      <div class="certificate-card"><h3>Advanced Architecting on AWS</h3><p>Ago 2025</p></div>
+      <div class="certificate-card"><h3>AWS Cloud Practitioner Essentials (ES/ES-ES)</h3><p>Jun 2025</p></div>
+      <div class="certificate-card"><h3>CloudFormation – Getting Started</h3><p>Jun 2025</p></div>
+      <div class="certificate-card"><h3>Serverless: Deploying & Mindset</h3><p>Jun–Ago 2025</p></div>
+      <div class="certificate-card"><h3>Amazon QuickSight – Getting Started</h3><p>Ago 2025</p></div>
+      <div class="certificate-card"><h3>Cloud Essentials / Game Dev (Badges)</h3><p>Ago 2025</p></div>
+      <div class="certificate-card"><h3>Generative AI (Diffusion Models)</h3><p>Ago 2025</p></div>
+      <div class="certificate-card"><h3>Experto en ChatGPT</h3><p>Ago 2025</p></div>
     </div>
+  </main>
 
-    <!-- Botón al PDF -->
-    <div style="text-align:center; margin-top:50px;">
-      <a href="Certificados_Luismi_Con_Imagenes_Final.pdf" target="_blank" class="btn">📜 Ver todos mis certificados en PDF</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Luis Miquel - Portafolio</p>
-  </footer>
+  <footer><p>© <span id="y"></span> Luis Miquel</p></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
-

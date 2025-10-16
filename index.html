@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Luis Miquel | Vendedor Digital Autodidacta</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Portafolio de Luis Miquel. Proyectos web, certificados y contacto.">
-  <link rel="icon" type="image/png" href="logo-lm.png">
-  <link rel="stylesheet" href="style.css">
-  <meta property="og:title" content="Luis Miquel | Vendedor Digital Autodidacta">
-  <meta property="og:description" content="Aprendo creando. Innovo compartiendo.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="logo-lm.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Portafolio de Luis Miquel: proyectos web, certificados e insignias." />
+  <meta name="theme-color" content="#009688" />
+
+  <!-- Favicon / PWA -->
+  <link rel="icon" href="logo-lm.png" />
+  <link rel="apple-touch-icon" href="/assets/icons/icon-192.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
+
   <header>
     <nav>
       <div class="wrap">
         <ul>
-          <li><a href="index.html" aria-label="Inicio"><img src="logo-lm.png" alt="Logo LM" width="40" height="40"></a></li>
+          <li>
+            <a href="index.html" aria-label="Inicio">
+              <img src="logo-lm.png" alt="Logo LM" width="40" height="40" />
+            </a>
+          </li>
           <li><a href="index.html" aria-current="page">Inicio</a></li>
           <li><a href="about.html">Sobre mí</a></li>
           <li><a href="apps.html">Mis Apps Web</a></li>
@@ -36,16 +44,55 @@
       <h2>Vendedor Digital Autodidacta</h2>
       <p>Aprendo creando. Innovo compartiendo.</p>
       <div>
-        <a href="apps.html" class="btn">Ver mis Apps Web</a>
-        <a href="assets/Certificados_Luismi_Con_Portada.pdf" class="btn btn--ghost" target="_blank" rel="noopener">Dossier (PDF)</a>
-        <a href="https://www.credly.com/users/luis-miguel-garcia-de-las-morenas" class="btn btn--ghost" target="_blank" rel="noopener">Mi Credly</a>
+        <a href="certificates.html" class="btn">Ver Certificados</a>
+        <a href="assets/Certificados_Luismi_Con_Portada.pdf" class="btn btn--ghost" target="_blank" rel="noopener">
+          Dossier (PDF)
+        </a>
+        <a href="https://www.credly.com/users/luis-miguel-garcia-de-las-morenas" class="btn btn--ghost" target="_blank" rel="noopener">
+          Mi Credly
+        </a>
+        <!-- Botón para instalar la app (PWA) -->
+        <button id="btnInstall" class="btn" style="display:none">Instalar app</button>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="y"></span> Luis Miquel - Portafolio</p>
+    <p>© <span id="y"></span> Luis Miquel — Portafolio</p>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <!-- Año dinámico -->
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Registrar Service Worker (PWA) -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js");
+      });
+    }
+  </script>
+
+  <!-- Lógica del botón "Instalar app" -->
+  <script>
+    let deferredPrompt;
+    const btn = document.getElementById("btnInstall");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      btn.style.display = "inline-block";
+    });
+
+    btn.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      btn.style.display = "none";
+    });
+  </script>
 </body>
 </html>

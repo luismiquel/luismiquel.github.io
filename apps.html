@@ -9,42 +9,124 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
+
   <header>
-    <nav><div class="wrap">
-      <ul>
-        <li><a href="index.html" aria-label="Inicio"><img src="logo-lm.png" alt="Logo LM" width="40"></a></li>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="about.html">Sobre mí</a></li>
-        <li><a href="apps.html" aria-current="page">Mis Apps Web</a></li>
-        <li><a href="why.html">¿Por qué elegirme?</a></li>
-        <li><a href="certificates.html">Certificados</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
-    </div></nav>
+    <nav>
+      <div class="wrap">
+        <ul>
+          <li>
+            <a href="index.html" aria-label="Inicio">
+              <img src="logo-lm.png" alt="Logo LM" width="40" height="40">
+            </a>
+          </li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Sobre mí</a></li>
+          <li><a href="apps.html" aria-current="page">Mis Apps Web</a></li>
+          <li><a href="why.html">¿Por qué elegirme?</a></li>
+          <li><a href="certificates.html">Certificados</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main id="main" class="content">
-    <h1>Mis Apps Web</h1>
-    <div class="apps">
-      <div class="app-card">
-        <h3>App 1</h3>
-        <p>Descripción breve del proyecto.</p>
-        <a href="#" target="_blank" rel="noopener">Abrir</a>
-      </div>
-      <div class="app-card">
-        <h3>App 2</h3>
-        <p>Descripción breve del proyecto.</p>
-        <a href="#" target="_blank" rel="noopener">Abrir</a>
-      </div>
-      <div class="app-card">
-        <h3>App 3</h3>
-        <p>Descripción breve del proyecto.</p>
-        <a href="#" target="_blank" rel="noopener">Abrir</a>
-      </div>
-    </div>
+    <header class="page-header">
+      <h1>Mis Apps Web</h1>
+      <p>
+        Aquí reúno las aplicaciones y proyectos web que he ido creando como
+        vendedor digital autodidacta: herramientas reales para cocinar mejor,
+        calcular comisiones y facilitar la vida a personas con discapacidad visual.
+      </p>
+    </header>
+
+    <section class="apps" aria-label="Listado de aplicaciones web">
+      <!-- Recetario accesible -->
+      <article class="app-card">
+        <h2>Recetario Español – 160 recetas accesibles</h2>
+        <p class="app-tagline">PWA de cocina pensada para personas ciegas o con baja visión.</p>
+        <p>
+          Recetario web con platos clásicos españoles, organizado por categorías
+          (aperitivos, primeros, segundos y postres). Incluye letra grande, alto
+          contraste, estructura sencilla y pasos detallados pensados para
+          lectores de pantalla.
+        </p>
+        <ul class="app-features">
+          <li>Modo PWA instalable en móvil.</li>
+          <li>Instrucciones paso a paso para personas invidentes.</li>
+          <li>Diseño limpio y navegación sencilla.</li>
+        </ul>
+        <!-- Cambia # por la URL real del recetario cuando la tengas -->
+        <a href="#" class="btn" target="_blank" rel="noopener">
+          Abrir Recetario
+        </a>
+      </article>
+
+      <!-- Calculadora de comisiones ONCE -->
+      <article class="app-card">
+        <h2>Calculadora de Comisiones ONCE 2025</h2>
+        <p class="app-tagline">Herramienta propia para optimizar ventas y comisiones.</p>
+        <p>
+          Aplicación diseñada para ayudar a vendedores de ONCE a conocer sus
+          comisiones aproximadas según el tipo de producto vendido (diario,
+          cuponazo, rascas, extraordinarios, etc.) y el volumen de ventas por día.
+        </p>
+        <ul class="app-features">
+          <li>Memoria de ventas por día de la semana.</li>
+          <li>Resumen mensual y estimación de comisiones.</li>
+          <li>Indicadores de objetivos mínimos y objetivo ideal.</li>
+        </ul>
+        <!-- Cambia # por la URL real de la calculadora -->
+        <a href="#" class="btn" target="_blank" rel="noopener">
+          Abrir Calculadora
+        </a>
+      </article>
+
+      <!-- App musculación accesible -->
+      <article class="app-card">
+        <h2>App de Musculación Accesible</h2>
+        <p class="app-tagline">Entrenamiento guiado por voz para personas ciegas.</p>
+        <p>
+          Prototipo de app centrada en rutinas de ejercicio explicadas por voz,
+          controladas mediante comandos sencillos (siguiente, repetir, salir)
+          y con descripción verbal de cada movimiento, sin depender de la pantalla.
+        </p>
+        <ul class="app-features">
+          <li>Pensada para lectores de pantalla y control por voz.</li>
+          <li>Rutinas estructuradas en pasos claros y seguros.</li>
+          <li>Enfocada en accesibilidad real, no en estética solamente.</li>
+        </ul>
+        <!-- Si aún no está publicada, deja el enlace como Próximamente -->
+        <span class="app-status">Estado: en desarrollo / prototipo interno</span>
+      </article>
+
+      <!-- PWA Portafolio -->
+      <article class="app-card">
+        <h2>Portafolio PWA “Luis Miquel | Vendedor Digital Autodidacta”</h2>
+        <p class="app-tagline">Esta misma web, convertida en app instalable.</p>
+        <p>
+          Portafolio personal que funciona como aplicación web progresiva (PWA):
+          se puede instalar en el móvil, funciona sin conexión básica
+          y sirve como carta de presentación digital para empresas y supervisores.
+        </p>
+        <ul class="app-features">
+          <li>PWA: instalable en Android y escritorio.</li>
+          <li>Secciones claras: sobre mí, apps, certificados, contacto.</li>
+          <li>Orientado a mostrar mi evolución como vendedor digital.</li>
+        </ul>
+        <a href="index.html" class="btn">
+          Ver Portafolio
+        </a>
+      </article>
+    </section>
   </main>
 
-  <footer><p>© <span id="y"></span> Luis Miquel</p></footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <footer>
+    <p>© <span id="y"></span> Luis Miquel</p>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

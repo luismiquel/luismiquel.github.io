@@ -9,43 +9,97 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
+
   <header>
-    <nav><div class="wrap">
-      <ul>
-        <li><a href="index.html" aria-label="Inicio"><img src="logo-lm.png" alt="Logo LM" width="40"></a></li>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="about.html">Sobre mí</a></li>
-        <li><a href="apps.html">Mis Apps Web</a></li>
-        <li><a href="why.html" aria-current="page">¿Por qué elegirme?</a></li>
-        <li><a href="certificates.html">Certificados</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
-    </div></nav>
+    <nav>
+      <div class="wrap">
+        <ul>
+          <li>
+            <a href="index.html" aria-label="Inicio">
+              <img src="logo-lm.png" alt="Logo LM" width="40" height="40">
+            </a>
+          </li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Sobre mí</a></li>
+          <li><a href="apps.html">Mis Apps Web</a></li>
+          <li><a href="why.html" aria-current="page">¿Por qué elegirme?</a></li>
+          <li><a href="certificates.html">Certificados</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main id="main" class="content">
-    <h1>¿Por qué elegirme?</h1>
-    <div class="why">
-      <div class="card">
-        <h3>Aprendizaje ágil</h3>
-        <p>Capacidad para absorber y aplicar conocimientos rápidamente.</p>
-      </div>
-      <div class="card">
-        <h3>Enfoque práctico</h3>
-        <p>Proyectos simples, útiles y pensados para móvil.</p>
-      </div>
-      <div class="card">
-        <h3>Accesibilidad</h3>
-        <p>Diseños claros, contraste adecuado y navegación sencilla.</p>
-      </div>
-      <div class="card">
-        <h3>Compromiso</h3>
-        <p>Me centro en resultados y mejoras continuas.</p>
-      </div>
-    </div>
+    <header class="page-header">
+      <h1>¿Por qué elegirme?</h1>
+      <p class="intro">
+        Apuesto por la simplicidad, la accesibilidad y el aprendizaje continuo.
+        Mi enfoque combina claridad, diseño funcional y capacidad para crear
+        herramientas útiles desde cero.
+      </p>
+    </header>
+
+    <section class="why" aria-label="Razones para elegirme">
+
+      <article class="card">
+        <h2>Aprendizaje rápido</h2>
+        <p>
+          Tengo la habilidad de aprender tecnología por mi cuenta y aplicarla
+          enseguida en proyectos reales. Me adapto rápido a nuevas herramientas.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Practicidad ante todo</h2>
+        <p>
+          No creo en complicar las cosas. Mis proyectos se centran en resolver
+          necesidades reales con soluciones simples, directas y accesibles.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Accesibilidad real</h2>
+        <p>
+          Diseño pensando en todos los usuarios, incluyendo personas con
+          discapacidad visual. Navegación clara, buen contraste y uso cómodo
+          de lectores de pantalla.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Compromiso y constancia</h2>
+        <p>
+          Cuando empiezo algo, lo termino. Me gusta mejorar, revisar y
+          pulir mis proyectos hasta que estén listos para usarse en el día a día.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Experimentos que se vuelven apps</h2>
+        <p>
+          Empecé creando herramientas pequeñas para mí. Con el tiempo, se convirtieron
+          en aplicaciones completas, desde recetas accesibles hasta rutinas guiadas por voz.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Crecimiento constante</h2>
+        <p>
+          Aprendo todos los días: desarrollo web, accesibilidad, PWAs, IA,
+          automatizaciones y diseño. Siempre con la mentalidad de mejorar.
+        </p>
+      </article>
+
+    </section>
   </main>
 
-  <footer><p>© <span id="y"></span> Luis Miquel</p></footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <footer>
+    <p>© <span id="y"></span> Luis Miquel</p>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

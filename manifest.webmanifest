@@ -1,14 +1,25 @@
 {
   "name": "Luis Miquel | Portafolio",
-  "short_name": "Luis Miquel",
-  "start_url": "/",
-  "scope": "/",
+  "short_name": "LM Portafolio",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0b1220",
   "theme_color": "#009688",
-  "description": "Portafolio, certificados e insignias de Luis Miquel.",
+  "description": "Portafolio profesional, apps web, certificados e insignias de Luis Miquel.",
   "icons": [
-    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
   ]
 }

@@ -1,61 +1,60 @@
-/* ===========================
-   Variables y base
-=========================== */
+/* ============================================================
+   VARIABLES
+============================================================ */
 :root {
-  --color-bg: #0b1220;
-  --color-bg-soft: #111827;
-  --color-surface: #111827;
-  --color-surface-alt: #020617;
-  --color-accent: #009688;
-  --color-accent-soft: #22c3aa;
-  --color-text: #e5e7eb;
-  --color-text-soft: #9ca3af;
-  --color-border: #1f2937;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.4);
-  --transition-fast: 0.2s ease-in-out;
-  --max-width: 960px;
+  --bg: #0b1220;
+  --bg-soft: #111827;
+  --bg-alt: #020617;
+
+  --surface: #111827;
+  --surface-alt: #0f172a;
+
+  --accent: #00c2a8;
+  --accent-strong: #22e4c6;
+
+  --text: #e5e7eb;
+  --text-soft: #9ca3af;
+
+  --border: rgba(148, 163, 184, 0.25);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+  --transition: 0.2s ease;
+
+  --max-w: 960px;
   --spacing: 1rem;
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-*,
-*::before,
-*::after {
+/* ============================================================
+   RESET
+============================================================ */
+*, *::before, *::after {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-main);
-  background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
-  color: var(--color-text);
+  background: radial-gradient(circle at top, #1e293b 0%, #020617 50%, #000 100%);
+  font-family: var(--font);
+  color: var(--text);
   line-height: 1.5;
 }
 
-/* ===========================
-   Enlaces y texto
-=========================== */
-
 a {
-  color: var(--color-accent-soft);
+  color: var(--accent);
   text-decoration: none;
 }
+a:hover { text-decoration: underline; }
 
-a:hover,
-a:focus-visible {
-  text-decoration: underline;
-}
-
-/* ===========================
-   Skip link (accesibilidad)
-=========================== */
-
+/* ============================================================
+   SKIP LINK (ACCESSIBILITY)
+============================================================ */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -63,341 +62,238 @@ a:focus-visible {
   padding: 0.5rem 1rem;
   background: #000;
   color: #fff;
-  z-index: 1000;
   border-radius: 999px;
+  z-index: 999;
 }
+.skip-link:focus { left: 1rem; }
 
-.skip-link:focus {
-  left: 0.5rem;
-}
-
-/* ===========================
-   Layout general
-=========================== */
-
-.wrap {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
+/* ============================================================
+   NAVBAR
+============================================================ */
 header {
   background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  z-index: 10;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  z-index: 50;
+}
+
+nav .wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
 }
 
 nav ul {
   list-style: none;
   margin: 0;
-  padding: 0.75rem 0;
+  padding: 0;
   display: flex;
-  align-items: center;
   gap: 0.75rem;
+  align-items: center;
   flex-wrap: wrap;
 }
 
-nav li a {
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
+nav a {
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: background-color var(--transition-fast), color var(--transition-fast),
-    transform var(--transition-fast);
+  color: var(--text-soft);
+  transition: var(--transition);
 }
 
-nav li a[aria-current="page"] {
-  background: rgba(34, 197, 167, 0.15);
-  color: #f9fafb;
+nav a:hover,
+nav a:focus-visible {
+  background: rgba(34, 197, 167, 0.25);
+  color: var(--text);
+}
+
+nav a[aria-current="page"] {
+  background: rgba(34, 197, 167, 0.25);
+  color: var(--accent-strong);
   font-weight: 600;
 }
 
-nav li a:hover,
-nav li a:focus-visible {
-  background: rgba(34, 197, 167, 0.25);
-  color: #e5e7eb;
-  transform: translateY(-1px);
-}
-
-nav img {
-  border-radius: 999px;
-}
-
-/* ===========================
-   Contenido principal
-=========================== */
-
+/* ============================================================
+   MAIN LAYOUT
+============================================================ */
 .content {
-  max-width: var(--max-width);
+  max-width: var(--max-w);
   margin: 1.5rem auto 2.5rem;
-  padding: 0 1rem 0.5rem;
-}
-
-.page-header {
-  margin-bottom: 1.75rem;
+  padding: 0 1rem;
 }
 
 .page-header h1 {
-  font-size: 1.7rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
 }
 
-.page-header .intro {
-  color: var(--color-text-soft);
-  max-width: 52rem;
-  font-size: 0.95rem;
+.page-header p {
+  color: var(--text-soft);
+  max-width: 40rem;
 }
 
-/* ===========================
-   Hero (index)
-=========================== */
-
+/* ============================================================
+   HERO
+============================================================ */
 .hero {
-  max-width: var(--max-width);
-  margin: 1.5rem auto 2.5rem;
-  padding: 2.5rem 1.25rem;
-  border-radius: 18px;
-  background: radial-gradient(circle at top left, rgba(34, 197, 167, 0.15), transparent 55%),
-              radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.18), transparent 60%),
-              linear-gradient(135deg, var(--color-surface), var(--color-surface-alt));
+  padding: 2.8rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at top left, rgba(34, 197, 167, 0.15), transparent 50%),
+              linear-gradient(135deg, var(--surface), var(--surface-alt));
   box-shadow: var(--shadow-soft);
-  text-align: left;
+  margin-bottom: 2rem;
 }
 
 .hero h1 {
-  font-size: 2rem;
-  margin: 0 0 0.25rem;
+  font-size: 2.2rem;
+  margin: 0 0 0.3rem;
 }
-
 .hero h2 {
-  margin: 0 0 0.75rem;
-  font-weight: 500;
-  color: var(--color-accent-soft);
+  font-size: 1.2rem;
+  color: var(--accent-strong);
+  margin: 0 0 1rem;
 }
 
-.hero p {
-  margin-bottom: 1.5rem;
-  color: var(--color-text-soft);
-}
-
-.hero .btn + .btn,
-.hero .btn + .btn--ghost,
-.hero .btn--ghost + .btn--ghost {
-  margin-left: 0.5rem;
-}
-
-/* ===========================
-   Botones
-=========================== */
-
+/* ============================================================
+   BUTTONS
+============================================================ */
 .btn,
 .btn--ghost {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 0.55rem 1.1rem;
   border-radius: 999px;
-  border: 1px solid transparent;
   font-size: 0.9rem;
+  align-items: center;
   cursor: pointer;
-  transition: background-color var(--transition-fast), color var(--transition-fast),
-    border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-  white-space: nowrap;
+  transition: var(--transition);
+  border: 1px solid transparent;
 }
 
 .btn {
-  background: var(--color-accent);
+  background: var(--accent);
   color: #0b1120;
   font-weight: 600;
-  box-shadow: 0 10px 18px rgba(16, 185, 129, 0.35);
 }
-
-.btn:hover,
-.btn:focus-visible {
-  background: var(--color-accent-soft);
-  box-shadow: 0 14px 30px rgba(34, 197, 167, 0.45);
-  transform: translateY(-1px);
+.btn:hover {
+  background: var(--accent-strong);
 }
 
 .btn--ghost {
   background: transparent;
-  color: var(--color-accent-soft);
-  border-color: rgba(34, 197, 167, 0.5);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn--ghost:hover {
+  background: rgba(34, 197, 167, 0.2);
+  color: var(--accent-strong);
 }
 
-.btn--ghost:hover,
-.btn--ghost:focus-visible {
-  background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
-}
-
-/* ===========================
-   Tarjetas (apps, why, certs…)
-=========================== */
-
+/* ============================================================
+   GRID SECTIONS
+============================================================ */
+.cert-section,
 .apps,
 .why,
-.cert-section,
 .contact-section {
   display: grid;
   gap: 1rem;
-}
-
-.apps,
-.why,
-.cert-section {
   margin-bottom: 2rem;
 }
 
+/* ============================================================
+   CARDS
+============================================================ */
 .card,
-.app-card,
-.cert-card {
-  background: rgba(15, 23, 42, 0.92);
-  border-radius: var(--radius-lg);
-  padding: 1rem 1.1rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-    border-color var(--transition-fast), background-color var(--transition-fast);
-}
-
-.card h2,
-.app-card h2,
-.cert-card h2,
-.card h3,
-.app-card h3,
-.cert-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.35rem;
-}
-
-.card p,
-.app-card p,
-.cert-card p {
-  font-size: 0.94rem;
-  color: var(--color-text-soft);
+.cert-card,
+.app-card {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
 }
 
 .card:hover,
-.app-card:hover,
-.cert-card:hover {
+.cert-card:hover,
+.app-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.95);
-  border-color: rgba(34, 197, 167, 0.5);
-  background: radial-gradient(circle at top, rgba(34, 197, 167, 0.12), transparent 60%),
-              rgba(15, 23, 42, 0.98);
+  border-color: var(--accent);
 }
 
-/* Listas en tarjetas */
-.app-features,
-.cert-card ul {
-  padding-left: 1.1rem;
-  margin: 0.5rem 0 0.35rem;
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
+/* ============================================================
+   CERTIFICADOS → MINIATURA + PDF
+============================================================ */
+.cert-horizontal {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  align-items: center;
 }
 
-.app-tagline {
-  font-size: 0.9rem;
-  color: var(--color-accent-soft);
-  margin-bottom: 0.35rem;
+.cert-thumb-placeholder {
+  width: 100%;
+  height: 80px;
+  background: rgba(148, 163, 184, 0.15);
+  border: 1px dashed rgba(148, 163, 184, 0.5);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-soft);
+  font-size: 0.8rem;
 }
 
-.app-status,
-.cert-type,
-.cert-provider,
-.cert-date {
-  display: block;
-  font-size: 0.83rem;
-  color: var(--color-text-soft);
-  margin-top: 0.2rem;
+/* ============================================================
+   INSIGNIAS AWS GRANDES
+============================================================ */
+.cert-img-large {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
 }
 
-/* ===========================
-   Contacto
-=========================== */
-
-.contact p {
-  color: var(--color-text-soft);
-}
-
+/* ============================================================
+   CONTACTO
+============================================================ */
 .contact-list {
-  list-style: none;
   padding: 0;
-  margin: 1rem 0 0;
+  list-style: none;
   display: grid;
   gap: 1rem;
 }
 
-.contact-list li h2 {
-  margin: 0 0 0.25rem;
-  font-size: 1rem;
-}
-
-/* ===========================
-   Certificados
-=========================== */
-
-.certificates h2 {
-  margin-bottom: 0.5rem;
-}
-
-/* ===========================
-   Footer
-=========================== */
-
+/* ============================================================
+   FOOTER
+============================================================ */
 footer {
-  border-top: 1px solid rgba(148, 163, 184, 0.25);
-  padding: 1rem 0 1.5rem;
   text-align: center;
-  color: var(--color-text-soft);
-  font-size: 0.85rem;
-  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 65%);
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  color: var(--text-soft);
+  border-top: 1px solid var(--border);
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 70%);
 }
 
-/* ===========================
-   Responsivo
-=========================== */
-
-@media (min-width: 640px) {
-  .hero {
-    padding: 2.8rem 2.5rem;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero h2 {
-    font-size: 1.2rem;
-  }
-
-  .apps,
-  .why,
-  .cert-section,
-  .contact-section {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 600px) {
+  .cert-horizontal {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 800px) {
   .apps,
   .why,
   .cert-section {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .cert-section:first-of-type {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hero {
-    margin-top: 2.2rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

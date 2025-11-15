@@ -2,97 +2,162 @@
 <html lang="es" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <title>Luis Miquel | Vendedor Digital Autodidacta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Portafolio de Luis Miquel: proyectos web, apps, cursos, certificados e insignias." />
-  <meta name="theme-color" content="#009688" />
+  <meta name="description" content="Portafolio de Luis Miquel, vendedor digital autodidacta. Proyectos web, apps accesibles, certificados e información de contacto." />
+  <title>Portafolio de Luis Miquel</title>
 
-  <!-- Favicon / PWA -->
-  <link rel="icon" href="logo-lm.png" />
-  <link rel="apple-touch-icon" href="/assets/icons/icon-192.png" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-
-  <!-- Estilos -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <nav>
-      <div class="wrap">
-        <ul>
-          <li>
-            <a href="index.html" aria-label="Inicio">
-              <img src="logo-lm.png" alt="Logo LM" width="40" height="40" />
-            </a>
-          </li>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-title">Luis Miquel</span>
+        <span class="brand-subtitle">Vendedor digital autodidacta</span>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
+          <span class="nav-toggle-text">Menú</span>
+        </button>
+        <ul id="menu-principal" class="nav-list">
           <li><a href="index.html" aria-current="page">Inicio</a></li>
           <li><a href="about.html">Sobre mí</a></li>
           <li><a href="apps.html">Mis Apps Web</a></li>
           <li><a href="why.html">¿Por qué elegirme?</a></li>
-          <li><a href="certificates.html">Certificados</a></li>
+          <li><a href="certificates.html">Certificados e Insignias</a></li>
           <li><a href="contact.html">Contacto</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main id="main">
-    <section class="hero">
-      <h1>Luis Miquel</h1>
-      <h2>Vendedor Digital Autodidacta</h2>
-      <p>Desarrollo proyectos web sencillos, útiles y optimizados para móvil. Aprendo creando herramientas que se pueden usar en el día a día.</p>
+  <main id="contenido-principal">
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero-inner">
+        <h1 id="hero-titulo">Portafolio de Luis Miquel</h1>
+        <p class="hero-text">
+          Soy un vendedor digital autodidacta con pasión por la tecnología, la accesibilidad
+          y la creación de proyectos web pensados para personas reales.
+        </p>
+        <p class="hero-text">
+          En este portafolio verás mis apps, mis certificados y cómo trabajo.
+        </p>
+        <div class="hero-actions">
+          <a href="apps.html" class="btn btn-primary">Ver mis apps</a>
+          <a href="certificates.html" class="btn btn-secondary">Ver certificados</a>
+        </div>
+      </div>
+    </section>
 
-      <div>
-        <a href="certificates.html" class="btn">Ver certificados</a>
+    <section class="section" aria-labelledby="seccion-sobre-mi">
+      <div class="section-inner">
+        <h2 id="seccion-sobre-mi">Quién soy</h2>
+        <p>
+          Me llamo Luis Miquel y trabajo cada día mejorando mis competencias digitales:
+          desarrollo web, accesibilidad para personas invidentes, automatización y uso de
+          inteligencia artificial para crear herramientas útiles.
+        </p>
+        <p>
+          Mi objetivo es unir mi experiencia como vendedor con soluciones digitales que
+          faciliten la vida a clientes, empresas y usuarios con distintas capacidades.
+        </p>
+        <a href="about.html" class="link-more">Leer más sobre mí</a>
+      </div>
+    </section>
 
-        <a href="https://www.credly.com/users/luis-miguel-garcia-de-las-morenas"
-           class="btn btn--ghost" target="_blank" rel="noopener">
-          Ver mis insignias en Credly
-        </a>
+    <section class="section" aria-labelledby="seccion-apps">
+      <div class="section-inner">
+        <h2 id="seccion-apps">Mis Apps Web destacadas</h2>
+        <p>
+          He desarrollado varias aplicaciones web centradas en accesibilidad, recetas de
+          cocina y herramientas de apoyo para el día a día.
+        </p>
+        <ul class="simple-list">
+          <li>Recetario accesible para personas ciegas o con baja visión.</li>
+          <li>Herramientas de cálculo y organización adaptadas a móvil.</li>
+          <li>Proyectos PWA preparados para funcionar sin conexión.</li>
+        </ul>
+        <a href="apps.html" class="link-more">Ver todas mis apps</a>
+      </div>
+    </section>
 
-        <!-- Botón PWA solo si el navegador lo permite -->
-        <button id="btnInstall" class="btn" style="display:none">Instalar app</button>
+    <section class="section" aria-labelledby="seccion-porque">
+      <div class="section-inner">
+        <h2 id="seccion-porque">¿Por qué elegirme?</h2>
+        <p>
+          Combino disciplina de vendedor de calle con mentalidad digital y enfoque en
+          accesibilidad. No me quedo en la teoría: pruebo, corrijo y mejoro continuamente
+          mis proyectos.
+        </p>
+        <ul class="simple-list">
+          <li>Constancia y aprendizaje continuo.</li>
+          <li>Experimentos reales con webs, apps y PWAs.</li>
+          <li>Foco en usuarios con discapacidad visual.</li>
+        </ul>
+        <a href="why.html" class="link-more">Leer más razones</a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-certificados">
+      <div class="section-inner">
+        <h2 id="seccion-certificados">Certificados e insignias</h2>
+        <p>
+          Estoy construyendo una base sólida de formación en herramientas digitales,
+          plataformas cloud y habilidades técnicas.
+        </p>
+        <a href="certificates.html" class="link-more">Ver todos mis certificados</a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-contacto">
+      <div class="section-inner">
+        <h2 id="seccion-contacto">Contacto</h2>
+        <p>
+          Si quieres colaborar conmigo, comentar algún proyecto o proponer una idea,
+          puedes escribirme a través del formulario de contacto.
+        </p>
+        <a href="contact.html" class="btn btn-primary">Ir a contacto</a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="y"></span> Luis Miquel — Portafolio</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
+      <p class="footer-small">
+        Desarrollado en HTML + CSS y alojado en GitHub Pages.
+      </p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    // Año dinámico en el pie
+    document.getElementById('anio-actual').textContent = new Date().getFullYear();
 
-  <!-- Registrar Service Worker (PWA) -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/sw.js");
+    // Menú móvil simple accesible
+    const navToggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu-principal');
+
+    if (navToggle && menu) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('nav-list--open');
       });
     }
-  </script>
 
-  <!-- Botón de instalación (PWA) -->
-  <script>
-    let deferredPrompt;
-    const btn = document.getElementById("btnInstall");
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      btn.style.display = "inline-block";
-    });
-
-    btn.addEventListener("click", async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      btn.style.display = "none";
-    });
+    // Registro básico del Service Worker (si existe sw.js)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {
+          // Silenciar errores, sin romper la página
+        });
+      });
+    }
   </script>
 </body>
 </html>

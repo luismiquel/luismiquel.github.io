@@ -1,179 +1,278 @@
-/* ===============================
-   ESTILOS GENERALES
-================================== */
-
-body {
-  font-family: Arial, sans-serif;
-  background: #0b1220;
-  color: #f8fafc;
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
+/* Reset básico y tipografía */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #0b1120;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* Enlaces y foco accesible */
 a {
-  color: #00d3a8;
+  color: #38bdf8;
   text-decoration: none;
 }
 
-a:hover {
-  opacity: .8;
-}
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #00d3a8;
-  padding: 8px;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* ===============================
-   HEADER + NAV
-================================== */
-
-header {
-  background: #0f172a;
-  border-bottom: 1px solid #1e293b;
-}
-
-nav .wrap ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  padding: 12px;
-  margin: 0;
-}
-
-nav a {
-  color: #fff;
-  font-size: 0.95rem;
-}
-
-nav a[aria-current="page"] {
-  font-weight: bold;
+a:hover,
+a:focus {
   text-decoration: underline;
 }
 
-/* ===============================
-   HERO
-================================== */
-
-.hero {
-  text-align: center;
-  padding: 50px 20px;
+:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
 }
 
-.hero h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background-color: #f97316;
+  color: #111827;
+  font-weight: 600;
+  z-index: 1000;
 }
 
-.hero h2 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: #00d3a8;
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
 }
 
-/* Botones */
-.btn {
-  background: #00d3a8;
-  color: #0b1220;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: bold;
-  display: inline-block;
-  margin: 6px;
+/* Layout general */
+.site-header {
+  background-color: #020617;
+  border-bottom: 1px solid #1f2937;
 }
 
-.btn--ghost {
-  border: 2px solid #00d3a8;
-  color: #00d3a8;
-  padding: 8px 16px;
-  border-radius: 8px;
-  margin: 6px;
+.header-inner,
+.hero-inner,
+.section-inner,
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
 }
 
-/* ===============================
-   CONTENIDO GENERAL
-================================== */
-
-.content {
-  padding: 20px;
-}
-
-.page-header h1 {
-  font-size: 1.7rem;
-  margin-bottom: 8px;
-}
-
-.page-header p {
-  font-size: 1rem;
-  opacity: .9;
-}
-
-/* ===============================
-   TARJETAS (ESTILO NUEVO)
-================================== */
-
-.card {
-  background: #0f172a;
-  padding: 20px;
-  border-radius: 14px;
-  border: 1px solid #1e293b;
-  margin-bottom: 20px;
-}
-
-/* ===============================
-   TARJETAS ANTIGUAS (OLD STYLE)
-================================== */
-
-.old-style {
-  background: #111827;
-  border-radius: 14px;
-  padding: 22px;
-  margin-bottom: 22px;
-  border: 1px solid #1e293b;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
-}
-
-.old-style h3 {
-  font-size: 1.2rem;
-  margin-top: 0;
-}
-
-.old-style p {
-  margin: 10px 0 18px 0;
-  font-size: .95rem;
-}
-
-.old-style .btn {
-  margin-top: 8px;
-}
-
-/* ===============================
-   SECCIÓN DE APPS
-================================== */
-
-.apps {
+/* Marca */
+.brand {
   display: flex;
   flex-direction: column;
 }
 
-/* ===============================
-   FOOTER
-================================== */
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
 
-footer {
+.brand-subtitle {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+/* Navegación */
+.site-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.main-nav {
+  position: relative;
+}
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  background-color: #111827;
+  color: #e5e7eb;
+  border-radius: 0.5rem;
+  border: 1px solid #374151;
+  cursor: pointer;
+}
+
+.nav-toggle-text {
+  margin: 0;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.nav-list--open {
+  display: flex;
+}
+
+.nav-list a {
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+}
+
+.nav-list a[aria-current="page"] {
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+/* Hero */
+.hero {
+  border-bottom: 1px solid #1f2937;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+}
+
+.hero-inner {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-text {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #f97316;
+  color: #111827;
+  border-color: #ea580c;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: #fb923c;
+}
+
+.btn-secondary {
+  background-color: #111827;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background-color: #1f2937;
+}
+
+/* Secciones */
+.section {
+  border-bottom: 1px solid #1f2937;
+}
+
+.section-inner {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+}
+
+.section p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+}
+
+.simple-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.simple-list li {
+  margin-bottom: 0.25rem;
+}
+
+/* Enlaces de texto */
+.link-more {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #020617;
+  border-top: 1px solid #1f2937;
+}
+
+.footer-inner {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   text-align: center;
-  padding: 18px;
-  margin-top: 30px;
-  background: #0f172a;
-  border-top: 1px solid #1e293b;
+}
+
+.footer-small {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Responsivo escritorio */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  .hero-inner {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
 }

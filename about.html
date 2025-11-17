@@ -1,75 +1,188 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>Sobre mí | Luis Miquel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="logo-lm.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Sobre mí: conoce el perfil profesional de Luis Miquel, vendedor digital autodidacta, orientado a accesibilidad y proyectos web sencillos y útiles." />
+  <title>Sobre mí – Portafolio de Luis Miquel</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <nav>
-      <div class="wrap">
-        <ul>
-          <li>
-            <a href="index.html" aria-label="Inicio">
-              <img src="logo-lm.png" alt="Logo LM" width="40" height="40">
-            </a>
-          </li>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-title">Luis Miquel</span>
+        <span class="brand-subtitle">Vendedor digital autodidacta</span>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          aria-label="Abrir o cerrar menú de navegación"
+        >
+          <span class="nav-toggle-text">Menú</span>
+        </button>
+        <ul id="menu-principal" class="nav-list">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="about.html" aria-current="page">Sobre mí</a></li>
           <li><a href="apps.html">Mis Apps Web</a></li>
           <li><a href="why.html">¿Por qué elegirme?</a></li>
-          <li><a href="certificates.html">Certificados</a></li>
+          <li><a href="certificates.html">Certificados e Insignias</a></li>
           <li><a href="contact.html">Contacto</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main id="main" class="content">
-    <header class="page-header">
-      <h1>Sobre mí</h1>
-      <p>Un poco más sobre quién soy y cómo trabajo.</p>
-    </header>
-
-    <section class="cert-section">
-      <article class="card">
-        <h2>Perfil</h2>
-        <p>
-          Soy Luis Miquel, creador autodidacta de proyectos web y herramientas digitales.
-          Me gusta aprender rápido, probar ideas y convertirlas en algo usable, simple y
-          enfocado a móvil.
+  <main id="contenido-principal" tabindex="-1">
+    <section class="hero" aria-labelledby="titulo-sobre-mi">
+      <div class="hero-inner">
+        <h1 id="titulo-sobre-mi">Sobre mí</h1>
+        <p class="hero-text">
+          Soy Luis Miquel, vendedor digital autodidacta. Combino la experiencia de trabajar
+          a pie de calle con clientes reales con el aprendizaje continuo en herramientas
+          digitales, desarrollo web y accesibilidad.
         </p>
-      </article>
-
-      <article class="card">
-        <h2>Forma de trabajar</h2>
-        <p>
-          Prefiero soluciones claras y ligeras: páginas que cargan rápido, botones grandes,
-          texto legible y navegación sencilla. Evito complicar las cosas cuando no hace falta.
+        <p class="hero-text">
+          Este portafolio recoge una parte de mi camino: las apps que estoy construyendo,
+          mi forma de trabajar y los certificados que voy obteniendo.
         </p>
-      </article>
+      </div>
+    </section>
 
-      <article class="card">
-        <h2>En qué estoy formándome</h2>
+    <section class="section" aria-labelledby="seccion-perfil">
+      <div class="section-inner">
+        <h2 id="seccion-perfil">Perfil profesional</h2>
         <p>
-          Sigo formándome en Inteligencia Artificial, servicios en la nube de AWS y
-          accesibilidad digital, para crear proyectos que puedan usar todo tipo de personas.
+          Vengo del mundo de las ventas y el trato directo con personas. Eso significa
+          escuchar, adaptarme y explicar las cosas de forma clara, sin tecnicismos
+          innecesarios. Esa misma filosofía la aplico ahora a mis proyectos digitales:
+          webs y apps que se entienden y se usan sin manual.
         </p>
-      </article>
+        <p>
+          Me considero una persona constante, que avanza paso a paso. No me asusta partir
+          desde cero en un tema si el resultado final merece la pena. Gracias a eso he ido
+          construyendo conocimientos en desarrollo web, PWA, accesibilidad, automatización
+          y uso práctico de la inteligencia artificial.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-accesibilidad">
+      <div class="section-inner">
+        <h2 id="seccion-accesibilidad">Enfoque en accesibilidad</h2>
+        <p>
+          Una parte importante de mis proyectos está centrada en la accesibilidad, especialmente
+          para personas ciegas o con baja visión. Trabajo en recetarios accesibles, apps con
+          lectura por voz, navegación mediante teclado y diseños con contraste alto y letra
+          grande.
+        </p>
+        <p>
+          No busco hacer interfaces llenas de adornos, sino experiencias claras que cualquier
+          persona pueda usar, incluso si depende de un lector de pantalla o necesita ampliaciones
+          fuertes de texto.
+        </p>
+        <p>
+          Mis apps de cocina accesible y otros proyectos están pensados para ser probados en
+          móvil, con estructura simple, botones claros y textos bien organizados.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-digital">
+      <div class="section-inner">
+        <h2 id="seccion-digital">Camino digital autodidacta</h2>
+        <p>
+          A través de cursos online, documentaciones oficiales y mucha práctica, he ido
+          construyendo un conjunto de habilidades digitales: HTML, CSS, JavaScript básico,
+          PWA, GitHub Pages, y herramientas en la nube. Mi objetivo no es solo “saber
+          teoría”, sino crear proyectos reales que se puedan enseñar, desplegar y usar.
+        </p>
+        <p>
+          Utilizo GitHub como base para mis proyectos, tanto para alojar webs como para
+          organizar código y tener un historial de cambios. También trabajo con plataformas
+          como Netlify y servicios relacionados cuando el proyecto lo necesita.
+        </p>
+        <p>
+          La inteligencia artificial es otra herramienta clave en mi día a día: la uso para
+          documentar mejor, revisar código, generar ideas y mejorar la accesibilidad de mis
+          apps.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-objetivos">
+      <div class="section-inner">
+        <h2 id="seccion-objetivos">Objetivos y próximos pasos</h2>
+        <p>
+          A corto plazo, mi objetivo es seguir profesionalizando mis proyectos actuales:
+          mejorar el recetario accesible, pulir mis apps web, y dejar este portafolio en un
+          nivel que represente bien lo que sé hacer.
+        </p>
+        <p>
+          A medio plazo, quiero que estos proyectos se conviertan en una carta de presentación
+          sólida para optar a roles donde pueda aportar valor, ya sea en el ámbito digital,
+          en proyectos orientados a accesibilidad o en iniciativas que mezclen ventas con
+          tecnología.
+        </p>
+        <p>
+          Cada nueva app, cada página y cada mejora en este portafolio forma parte de ese
+          camino.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-enlace-apps">
+      <div class="section-inner">
+        <h2 id="seccion-enlace-apps">Ver mis proyectos</h2>
+        <p>
+          Si quieres ver ejemplos concretos de lo que estoy construyendo, puedes visitar la
+          sección de apps, donde recopilo mis proyectos web y prototipos accesibles.
+        </p>
+        <a href="apps.html" class="btn btn-primary">Ir a mis apps</a>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="y"></span> Luis Miquel</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
+      <p class="footer-small">
+        Desarrollado en HTML + CSS y alojado en GitHub Pages.
+      </p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Año dinámico en el pie
+    document.getElementById('anio-actual').textContent = new Date().getFullYear();
+
+    // Menú móvil simple accesible
+    const navToggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu-principal');
+
+    if (navToggle && menu) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('nav-list--open');
+      });
+    }
+
+    // Registro básico del Service Worker (si existe sw.js)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {
+          // Silenciar errores, sin romper la página
+        });
+      });
+    }
   </script>
 </body>
 </html>

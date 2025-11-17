@@ -1,179 +1,279 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Portafolio de Luis Miquel, vendedor digital autodidacta. Proyectos web, apps accesibles, certificados e información de contacto." />
-  <title>Portafolio de Luis Miquel</title>
+/* Reset básico y tipografía */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  <meta name="theme-color" content="#020617" />
-  <meta name="color-scheme" content="dark light" />
+html {
+  scroll-behavior: smooth;
+}
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.webmanifest" />
-</head>
-<body>
-  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #020617;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
 
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <div class="brand">
-        <span class="brand-title">Luis Miquel</span>
-        <span class="brand-subtitle">Vendedor digital autodidacta</span>
-      </div>
+/* Enlaces y foco accesible */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
 
-      <nav class="main-nav" aria-label="Navegación principal">
-        <button
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="menu-principal"
-          aria-label="Abrir o cerrar menú de navegación"
-        >
-          <span class="nav-toggle-text">Menú</span>
-        </button>
-        <ul id="menu-principal" class="nav-list">
-          <li><a href="index.html" aria-current="page">Inicio</a></li>
-          <li><a href="about.html">Sobre mí</a></li>
-          <li><a href="apps.html">Mis Apps Web</a></li>
-          <li><a href="why.html">¿Por qué elegirme?</a></li>
-          <li><a href="certificates.html">Certificados e Insignias</a></li>
-          <li><a href="contact.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
 
-  <main id="contenido-principal" role="main" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-titulo">
-      <div class="hero-inner">
-        <h1 id="hero-titulo">Portafolio de Luis Miquel</h1>
-        <p class="hero-text">
-          Soy un vendedor digital autodidacta con pasión por la tecnología, la accesibilidad
-          y la creación de proyectos web pensados para personas reales, especialmente
-          usuarios con discapacidad visual.
-        </p>
-        <p class="hero-text">
-          En este portafolio encontrarás mis apps, mis certificados y cómo trabajo cada día
-          para mejorar mis habilidades digitales.
-        </p>
-        <div class="hero-actions">
-          <a href="apps.html" class="btn btn-primary">Ver mis apps</a>
-          <a href="certificates.html" class="btn btn-secondary">Ver certificados</a>
-        </div>
-      </div>
-    </section>
+:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
+}
 
-    <section class="section" aria-labelledby="seccion-sobre-mi">
-      <div class="section-inner">
-        <h2 id="seccion-sobre-mi">Quién soy</h2>
-        <p>
-          Me llamo Luis Miquel y combino mi experiencia como vendedor con el desarrollo
-          de herramientas digitales: webs, apps accesibles y proyectos pensados para
-          facilitar la vida a las personas.
-        </p>
-        <p>
-          Trabajo de forma autodidacta, probando, corrigiendo y mejorando mis proyectos.
-          Mi objetivo es crecer profesionalmente y aportar soluciones útiles, sobre todo
-          para personas ciegas o con baja visión.
-        </p>
-        <a href="about.html" class="link-more">Leer más sobre mí</a>
-      </div>
-    </section>
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background-color: #f97316;
+  color: #111827;
+  font-weight: 600;
+  z-index: 1000;
+}
 
-    <section class="section" aria-labelledby="seccion-apps">
-      <div class="section-inner">
-        <h2 id="seccion-apps">Mis Apps Web destacadas</h2>
-        <p>
-          Estoy construyendo un conjunto de aplicaciones web centradas en accesibilidad,
-          organización y vida diaria: recetarios guiados por voz, calculadoras específicas
-          y herramientas pensadas para usarse desde el móvil.
-        </p>
-        <ul class="simple-list">
-          <li>Recetario accesible para personas ciegas o con baja visión.</li>
-          <li>Herramientas sencillas de cálculo y organización.</li>
-          <li>Proyectos PWA preparados para funcionar sin conexión.</li>
-        </ul>
-        <a href="apps.html" class="link-more">Ver todas mis apps</a>
-      </div>
-    </section>
+.skip-link:focus-visible {
+  left: 0.5rem;
+  top: 0.5rem;
+}
 
-    <section class="section" aria-labelledby="seccion-porque">
-      <div class="section-inner">
-        <h2 id="seccion-porque">¿Por qué elegirme?</h2>
-        <p>
-          No me quedo en la teoría. Aprendo, pruebo y corrijo sobre proyectos reales.
-          Mi enfoque es práctico: cada app o web que creo intenta resolver un problema
-          concreto, con especial atención a la accesibilidad.
-        </p>
-        <ul class="simple-list">
-          <li>Constancia y aprendizaje continuo.</li>
-          <li>Experimentos reales con webs, apps y PWAs.</li>
-          <li>Compromiso con la accesibilidad para personas invidentes.</li>
-        </ul>
-        <a href="why.html" class="link-more">Leer más razones</a>
-      </div>
-    </section>
+/* Layout general */
+.site-header {
+  background-color: #020617;
+  border-bottom: 1px solid #1f2937;
+}
 
-    <section class="section" aria-labelledby="seccion-certificados">
-      <div class="section-inner">
-        <h2 id="seccion-certificados">Certificados e insignias</h2>
-        <p>
-          Estoy construyendo una base de formación en herramientas digitales, plataformas
-          cloud y competencias técnicas. Aquí recopilo los certificados e insignias que
-          demuestran mi avance.
-        </p>
-        <a href="certificates.html" class="link-more">Ver todos mis certificados</a>
-      </div>
-    </section>
+.header-inner,
+.hero-inner,
+.section-inner,
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+}
 
-    <section class="section" aria-labelledby="seccion-contacto">
-      <div class="section-inner">
-        <h2 id="seccion-contacto">Contacto</h2>
-        <p>
-          Si quieres colaborar conmigo, comentar algún proyecto o proponer una idea,
-          puedes escribirme a través del formulario de contacto.
-        </p>
-        <a href="contact.html" class="btn btn-primary">Ir a contacto</a>
-      </div>
-    </section>
-  </main>
+/* Marca */
+.brand {
+  display: flex;
+  flex-direction: column;
+}
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
-      <p class="footer-small">
-        Desarrollado en HTML + CSS y alojado en GitHub Pages.
-      </p>
-    </div>
-  </footer>
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
 
-  <script>
-    // Año dinámico en el pie
-    const spanAnio = document.getElementById('anio-actual');
-    if (spanAnio) {
-      spanAnio.textContent = new Date().getFullYear();
-    }
+.brand-subtitle {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
 
-    // Menú móvil accesible
-    const navToggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('menu-principal');
+/* Navegación */
+.site-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
 
-    if (navToggle && menu) {
-      navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('nav-list--open');
-      });
-    }
+.main-nav {
+  position: relative;
+}
 
-    // Registro básico del Service Worker (si existe sw.js)
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(() => {
-          // Silenciar errores para no romper la página
-        });
-      });
-    }
-  </script>
-</body>
-</html>
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  background-color: #111827;
+  color: #e5e7eb;
+  border-radius: 0.5rem;
+  border: 1px solid #374151;
+  cursor: pointer;
+}
+
+.nav-toggle-text {
+  margin: 0;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.nav-list--open {
+  display: flex;
+}
+
+.nav-list a {
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+}
+
+.nav-list a[aria-current="page"] {
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+/* Hero */
+.hero {
+  border-bottom: 1px solid #1f2937;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+}
+
+.hero-inner {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-text {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #f97316;
+  color: #111827;
+  border-color: #ea580c;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: #fb923c;
+}
+
+.btn-secondary {
+  background-color: #111827;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background-color: #1f2937;
+}
+
+/* Secciones */
+.section {
+  border-bottom: 1px solid #1f2937;
+}
+
+.section-inner {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+}
+
+.section p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+}
+
+/* Listas */
+.simple-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.simple-list li {
+  margin-bottom: 0.25rem;
+}
+
+/* Enlaces de texto */
+.link-more {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #020617;
+  border-top: 1px solid #1f2937;
+}
+
+.footer-inner {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.footer-small {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Responsivo escritorio */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  .hero-inner {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}

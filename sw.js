@@ -1,5 +1,5 @@
-// Nombre de la caché (cámbialo a v2, v3... cuando hagas cambios grandes)
-const CACHE_NAME = "lm-portfolio-v1";
+// Nombre de la caché (cambiar a v5, v6... cuando hagas cambios grandes)
+const CACHE_NAME = "lm-portfolio-v4";
 
 // Archivos que se precachean para funcionar incluso con mala conexión
 const URLS_TO_CACHE = [
@@ -11,6 +11,7 @@ const URLS_TO_CACHE = [
   "./why.html",
   "./certificates.html",
   "./contact.html",
+  "./offline.html",
   "./manifest.webmanifest"
 ];
 
@@ -62,9 +63,15 @@ self.addEventListener("fetch", (event) => {
             return cachedResponse;
           }
 
-          // Si no está en caché y la petición es a la raíz, devolvemos index.html
+          // Si la petición es de navegación (cargar página), mostramos la página offline
           if (request.mode === "navigate") {
-            return caches.match("./index.html");
+            return caches.match("./offline.html").then((offlinePage) => {
+              if (offlinePage) {
+                return offlinePage;
+              }
+              // Si por algún motivo no está offline.html, devolvemos index.html como último recurso
+              return caches.match("./index.html");
+            });
           }
 
           // Si no hay nada mejor, dejamos que falle

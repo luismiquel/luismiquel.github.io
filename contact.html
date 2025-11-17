@@ -1,70 +1,169 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>Contacto | Luis Miquel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="logo-lm.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Contacto de Luis Miquel: formulario sencillo para proponer proyectos, colaboraciones o solicitar más información." />
+  <title>Contacto – Portafolio de Luis Miquel</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <nav>
-      <div class="wrap">
-        <ul>
-          <li>
-            <a href="index.html" aria-label="Inicio">
-              <img src="logo-lm.png" alt="Logo LM" width="40" height="40">
-            </a>
-          </li>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-title">Luis Miquel</span>
+        <span class="brand-subtitle">Vendedor digital autodidacta</span>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          aria-label="Abrir o cerrar menú de navegación"
+        >
+          <span class="nav-toggle-text">Menú</span>
+        </button>
+        <ul id="menu-principal" class="nav-list">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="about.html">Sobre mí</a></li>
           <li><a href="apps.html">Mis Apps Web</a></li>
           <li><a href="why.html">¿Por qué elegirme?</a></li>
-          <li><a href="certificates.html">Certificados</a></li>
+          <li><a href="certificates.html">Certificados e Insignias</a></li>
           <li><a href="contact.html" aria-current="page">Contacto</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main id="main" class="content contact">
-    <header class="page-header">
-      <h1>Contacto</h1>
-      <p>Si quieres comentar algún proyecto o proponer una colaboración, puedes escribirme por aquí:</p>
-    </header>
+  <main id="contenido-principal" tabindex="-1">
+    <section class="hero" aria-labelledby="titulo-contacto">
+      <div class="hero-inner">
+        <h1 id="titulo-contacto">Contacto</h1>
+        <p class="hero-text">
+          Si quieres comentar un proyecto, proponer una colaboración o pedir más información
+          sobre mis apps y mi perfil, puedes utilizar este formulario como punto de inicio.
+        </p>
+        <p class="hero-text">
+          Prefiero mensajes claros y directos: qué necesitas, qué tienes en mente y cómo
+          crees que puedo ayudar.
+        </p>
+      </div>
+    </section>
 
-    <section class="contact-section">
-      <article class="card">
-        <h2>Email</h2>
-        <p>Puedes adaptar esta dirección a la que prefieras usar.</p>
-        <a href="mailto:tu.correo@ejemplo.com" class="btn--ghost">Enviar email</a>
-      </article>
+    <section class="section" aria-labelledby="seccion-formulario">
+      <div class="section-inner">
+        <h2 id="seccion-formulario">Formulario de contacto</h2>
+        <p>
+          Este formulario es sencillo para que pueda usarse también con lectores de
+          pantalla. Los campos marcados como obligatorios ayudan a que el mensaje llegue
+          con la información mínima necesaria.
+        </p>
 
-      <article class="card">
-        <h2>WhatsApp</h2>
-        <p>Mensaje directo a mi número de WhatsApp.</p>
-        <a href="https://wa.me/34675594592" target="_blank" rel="noopener" class="btn">Abrir WhatsApp</a>
-      </article>
+        <form
+          action="mailto:tucorreo@example.com"
+          method="post"
+          enctype="text/plain"
+          aria-describedby="ayuda-formulario"
+        >
+          <p id="ayuda-formulario">
+            Rellena tu nombre, un correo electrónico de contacto y un mensaje breve explicando
+            en qué puedo ayudarte.
+          </p>
 
-      <article class="card">
-        <h2>Credly</h2>
-        <p>Ver todas mis insignias verificadas y parte de mi formación.</p>
-        <a href="https://www.credly.com/users/luis-miguel-garcia-de-las-morenas" target="_blank" rel="noopener" class="btn--ghost">
-          Ver perfil Credly
-        </a>
-      </article>
+          <div class="form-field">
+            <label for="nombre">Nombre completo (obligatorio)</label>
+            <input
+              id="nombre"
+              name="nombre"
+              type="text"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Correo electrónico (obligatorio)</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="asunto">Asunto del mensaje</label>
+            <input
+              id="asunto"
+              name="asunto"
+              type="text"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="mensaje">Mensaje (obligatorio)</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Enviar mensaje
+          </button>
+        </form>
+
+        <p class="footer-small" style="margin-top: 1rem;">
+          Nota: este formulario utiliza tu cliente de correo por defecto para enviar el
+          mensaje. Si prefieres, también puedes copiar tu texto y enviarlo manualmente
+          desde tu correo.
+        </p>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="y"></span> Luis Miquel</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
+      <p class="footer-small">
+        Desarrollado en HTML + CSS y alojado en GitHub Pages.
+      </p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Año dinámico en el pie
+    document.getElementById('anio-actual').textContent = new Date().getFullYear();
+
+    // Menú móvil simple accesible
+    const navToggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu-principal');
+
+    if (navToggle && menu) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('nav-list--open');
+      });
+    }
+
+    // Registro básico del Service Worker (si existe sw.js)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {
+          // Silenciar errores, sin romper la página
+        });
+      });
+    }
   </script>
 </body>
 </html>

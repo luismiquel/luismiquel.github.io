@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="es-ES" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Apps web de Luis Miquel: proyectos accesibles, pensados para móvil, con enfoque en personas ciegas o con baja visión." />
-  <title>Mis Apps Web – Portafolio de Luis Miquel</title>
+  <meta name="description" content="Portafolio de Luis Miquel, vendedor digital autodidacta. Apps accesibles, proyectos web sencillos y formación digital con foco en personas ciegas o con baja visión." />
+  <title>Portafolio de Luis Miquel</title>
+
+  <!-- Open Graph básico para compartir -->
+  <meta property="og:title" content="Portafolio de Luis Miquel – Vendedor digital autodidacta" />
+  <meta property="og:description" content="Apps accesibles, proyectos web sencillos y formación digital, con foco en personas ciegas o con baja visión." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luismiquel.github.io/" />
 
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -29,9 +35,9 @@
           <span class="nav-toggle-text">Menú</span>
         </button>
         <ul id="menu-principal" class="nav-list">
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
           <li><a href="about.html">Sobre mí</a></li>
-          <li><a href="apps.html" aria-current="page">Mis Apps Web</a></li>
+          <li><a href="apps.html">Mis Apps Web</a></li>
           <li><a href="why.html">¿Por qué elegirme?</a></li>
           <li><a href="certificates.html">Certificados e Insignias</a></li>
           <li><a href="contact.html">Contacto</a></li>
@@ -41,128 +47,108 @@
   </header>
 
   <main id="contenido-principal" tabindex="-1">
-    <section class="hero" aria-labelledby="titulo-apps">
+    <section class="hero" aria-labelledby="hero-titulo">
       <div class="hero-inner">
-        <h1 id="titulo-apps">Mis Apps Web</h1>
+        <h1 id="hero-titulo">Portafolio de Luis Miquel</h1>
         <p class="hero-text">
-          Aquí recopilo algunas de las aplicaciones web en las que trabajo. Todas tienen un
-          punto en común: están pensadas para usarse en móvil, con diseño sencillo y con
-          atención especial a la accesibilidad.
+          Soy un vendedor digital autodidacta con experiencia en trato directo con personas
+          y en creación de herramientas sencillas para la vida diaria: webs, apps accesibles
+          y proyectos pensados para móvil.
         </p>
         <p class="hero-text">
-          Muchas de estas apps funcionan como PWA, con letra grande, contraste alto y flujos
-          claros para personas ciegas o con baja visión.
+          Me especializo en aplicaciones web accesibles para personas ciegas o con baja visión,
+          con navegación clara, letra grande y diseño simple.
         </p>
+        <p class="hero-text">
+          Aquí encontrarás mis aplicaciones web, mis proyectos de accesibilidad y mis
+          certificados de formación.
+        </p>
+        <div class="hero-actions">
+          <a href="apps.html" class="btn btn-primary">Ver mis apps</a>
+          <a href="certificates.html" class="btn btn-secondary">Ver certificados</a>
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="seccion-accesibles">
+    <section class="section" aria-labelledby="seccion-sobre-mi">
       <div class="section-inner">
-        <h2 id="seccion-accesibles">Apps accesibles para usuarios con discapacidad visual</h2>
+        <h2 id="seccion-sobre-mi">Quién soy</h2>
         <p>
-          Uno de mis focos principales es crear aplicaciones que puedan usar personas que
-          dependen de lectores de pantalla o tienen baja visión. Para ello, trabajo con
-          textos claros, navegación por teclado, estructura lógica de encabezados y botones
-          bien etiquetados.
+          Me llamo Luis Miquel y estoy construyendo paso a paso un perfil profesional
+          centrado en tres pilares: ventas, competencias digitales y accesibilidad.
         </p>
-
-        <ul class="simple-list">
-          <li>
-            <strong>Recetario accesible en español</strong>: app web centrada en recetas con
-            instrucciones paso a paso, pensadas para ser leídas por voz y seguidas sin mirar
-            la pantalla.
-          </li>
-          <li>
-            <strong>Versión PWA del recetario</strong>: preparada para funcionar sin conexión,
-            con carga rápida y diseño optimizado para móvil.
-          </li>
-          <li>
-            <strong>Prototipos de herramientas guiadas</strong>: interfaces donde la persona
-            puede avanzar con pasos claros y controles simples.
-          </li>
-        </ul>
-
         <p>
-          El objetivo es que cualquier persona, independientemente de su visión, pueda seguir
-          la app sin perderse.
+          He trabajado a pie de calle, en contacto directo con clientes, lo que me ha enseñado
+          a escuchar, adaptarme y ser constante. En paralelo, me he formado de manera
+          autodidacta en herramientas digitales, desarrollo web y uso de inteligencia artificial.
         </p>
+        <p>
+          Mi objetivo es unir la experiencia práctica del día a día con soluciones digitales
+          que aporten valor a personas reales, especialmente a quienes necesitan interfaces
+          simples, claras y accesibles.
+        </p>
+        <a href="about.html" class="link-more">Leer más sobre mí</a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="seccion-web-personal">
+    <section class="section" aria-labelledby="seccion-apps">
       <div class="section-inner">
-        <h2 id="seccion-web-personal">Webs y portafolios personales</h2>
+        <h2 id="seccion-apps">Mis Apps Web destacadas</h2>
         <p>
-          Utilizo GitHub Pages para alojar webs estáticas ligeras, como este portafolio.
-          Me interesa que el código sea sencillo de mantener, fácil de leer y compatible con
-          lectores de pantalla.
-        </p>
-        <p>
-          En estas webs trabajo con:
+          Me especializo en aplicaciones web sencillas, pensadas para móvil y para usuarios
+          que necesitan claridad y accesibilidad. Muchas de ellas están diseñadas con
+          contraste alto, letra grande y navegación simple.
         </p>
         <ul class="simple-list">
-          <li>HTML semántico (header, main, section, footer).</li>
-          <li>CSS organizado, sin dependencias pesadas.</li>
-          <li>Menús accesibles, con estados de foco visibles.</li>
+          <li>Recetarios accesibles con lectura por voz para personas ciegas o con baja visión.</li>
+          <li>Herramientas web ligeras que funcionan también como PWA sin conexión.</li>
+          <li>Prototipos de apps centradas en organización diaria y ayuda al usuario.</li>
         </ul>
         <p>
-          Esta misma página de apps forma parte de ese trabajo continuo de ir mejorando la
-          estructura y la experiencia del usuario.
+          Todas las apps están en constante mejora, con prioridad en accesibilidad y
+          experiencia en dispositivos móviles.
         </p>
+        <a href="apps.html" class="link-more">Ver todas mis apps</a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="seccion-pwa">
+    <section class="section" aria-labelledby="seccion-porque">
       <div class="section-inner">
-        <h2 id="seccion-pwa">Trabajo con PWA y uso en móvil</h2>
+        <h2 id="seccion-porque">¿Por qué elegirme?</h2>
         <p>
-          Muchas de las apps que desarrollo están pensadas para instalarse como PWA (Progressive
-          Web App). Esto permite:
+          No vengo del mundo técnico clásico, sino del contacto directo con personas y la
+          necesidad de resolver problemas reales. Eso me obliga a hacer herramientas que
+          se entienden sin manual y que cualquier persona pueda usar.
         </p>
         <ul class="simple-list">
-          <li>Usar la app desde el icono en la pantalla del móvil.</li>
-          <li>Reducir la dependencia de la conexión constante.</li>
-          <li>Ofrecer una experiencia más cercana a una app nativa.</li>
+          <li>Constancia y aprendizaje continuo.</li>
+          <li>Enfoque en accesibilidad para personas con discapacidad visual.</li>
+          <li>Proyectos reales, no solo teoría.</li>
         </ul>
-        <p>
-          Combino el uso de manifest, service worker y diseño responsive para que la
-          experiencia sea lo más estable posible, siempre dentro de apps sencillas y
-          centradas en la utilidad.
-        </p>
+        <a href="why.html" class="link-more">Ver más motivos</a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="seccion-lab">
+    <section class="section" aria-labelledby="seccion-certificados">
       <div class="section-inner">
-        <h2 id="seccion-lab">Zona de pruebas y prototipos</h2>
+        <h2 id="seccion-certificados">Certificados e insignias</h2>
         <p>
-          Además de las apps principales, mantengo una especie de “laboratorio” donde pruebo
-          ideas nuevas: interfaces diferentes, flujos guiados, mejoras de accesibilidad o
-          pequeños módulos que luego puedo integrar en proyectos más grandes.
+          Estoy construyendo una base sólida de formación en herramientas digitales, nube,
+          automatización y buenas prácticas. En esta sección recopilo certificados e insignias
+          de distintas plataformas, que muestran mi progreso y compromiso con el aprendizaje.
         </p>
-        <p>
-          Este enfoque de prueba y error me permite aprender rápido, detectar qué funciona
-          mejor para usuarios reales y aplicar esas mejoras en las versiones estables de
-          mis apps.
-        </p>
+        <a href="certificates.html" class="link-more">Ver todos mis certificados</a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="seccion-siguientes-pasos">
+    <section class="section" aria-labelledby="seccion-contacto">
       <div class="section-inner">
-        <h2 id="seccion-siguientes-pasos">Siguientes pasos en mis apps</h2>
+        <h2 id="seccion-contacto">Contacto</h2>
         <p>
-          Mis próximos pasos están centrados en seguir mejorando estas aplicaciones:
+          Si quieres comentar un proyecto, proponer una colaboración o conocer mejor cómo
+          trabajo, puedes escribirme a través del formulario de contacto.
         </p>
-        <ul class="simple-list">
-          <li>Incluir más funciones de voz y asistencia guiada.</li>
-          <li>Refinar la estructura para lectores de pantalla.</li>
-          <li>Optimizar aún más el rendimiento en móviles.</li>
-        </ul>
-        <p>
-          Cada mejora en accesibilidad o experiencia de usuario que pruebo en una app
-          intento trasladarla al resto de mis proyectos.
-        </p>
+        <a href="contact.html" class="btn btn-primary">Ir a contacto</a>
       </div>
     </section>
   </main>
@@ -171,7 +157,7 @@
     <div class="footer-inner">
       <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
       <p class="footer-small">
-        Desarrollado en HTML + CSS y alojado en GitHub Pages.
+        Desarrollado en HTML + CSS y alojado en GitHub Pages. Sin cookies, sin trackers.
       </p>
     </div>
   </footer>

@@ -6,13 +6,16 @@
   <meta name="description" content="Portafolio de Luis Miquel, vendedor digital autodidacta. Proyectos web, apps accesibles, certificados e información de contacto." />
   <title>Portafolio de Luis Miquel</title>
 
+  <meta name="theme-color" content="#020617" />
+  <meta name="color-scheme" content="dark light" />
+
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
   <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="header-inner">
       <div class="brand">
         <span class="brand-title">Luis Miquel</span>
@@ -20,7 +23,12 @@
       </div>
 
       <nav class="main-nav" aria-label="Navegación principal">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          aria-label="Abrir o cerrar menú de navegación"
+        >
           <span class="nav-toggle-text">Menú</span>
         </button>
         <ul id="menu-principal" class="nav-list">
@@ -35,16 +43,18 @@
     </div>
   </header>
 
-  <main id="contenido-principal">
+  <main id="contenido-principal" role="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-titulo">
       <div class="hero-inner">
         <h1 id="hero-titulo">Portafolio de Luis Miquel</h1>
         <p class="hero-text">
           Soy un vendedor digital autodidacta con pasión por la tecnología, la accesibilidad
-          y la creación de proyectos web pensados para personas reales.
+          y la creación de proyectos web pensados para personas reales, especialmente
+          usuarios con discapacidad visual.
         </p>
         <p class="hero-text">
-          En este portafolio verás mis apps, mis certificados y cómo trabajo.
+          En este portafolio encontrarás mis apps, mis certificados y cómo trabajo cada día
+          para mejorar mis habilidades digitales.
         </p>
         <div class="hero-actions">
           <a href="apps.html" class="btn btn-primary">Ver mis apps</a>
@@ -57,13 +67,14 @@
       <div class="section-inner">
         <h2 id="seccion-sobre-mi">Quién soy</h2>
         <p>
-          Me llamo Luis Miquel y trabajo cada día mejorando mis competencias digitales:
-          desarrollo web, accesibilidad para personas invidentes, automatización y uso de
-          inteligencia artificial para crear herramientas útiles.
+          Me llamo Luis Miquel y combino mi experiencia como vendedor con el desarrollo
+          de herramientas digitales: webs, apps accesibles y proyectos pensados para
+          facilitar la vida a las personas.
         </p>
         <p>
-          Mi objetivo es unir mi experiencia como vendedor con soluciones digitales que
-          faciliten la vida a clientes, empresas y usuarios con distintas capacidades.
+          Trabajo de forma autodidacta, probando, corrigiendo y mejorando mis proyectos.
+          Mi objetivo es crecer profesionalmente y aportar soluciones útiles, sobre todo
+          para personas ciegas o con baja visión.
         </p>
         <a href="about.html" class="link-more">Leer más sobre mí</a>
       </div>
@@ -73,12 +84,13 @@
       <div class="section-inner">
         <h2 id="seccion-apps">Mis Apps Web destacadas</h2>
         <p>
-          He desarrollado varias aplicaciones web centradas en accesibilidad, recetas de
-          cocina y herramientas de apoyo para el día a día.
+          Estoy construyendo un conjunto de aplicaciones web centradas en accesibilidad,
+          organización y vida diaria: recetarios guiados por voz, calculadoras específicas
+          y herramientas pensadas para usarse desde el móvil.
         </p>
         <ul class="simple-list">
           <li>Recetario accesible para personas ciegas o con baja visión.</li>
-          <li>Herramientas de cálculo y organización adaptadas a móvil.</li>
+          <li>Herramientas sencillas de cálculo y organización.</li>
           <li>Proyectos PWA preparados para funcionar sin conexión.</li>
         </ul>
         <a href="apps.html" class="link-more">Ver todas mis apps</a>
@@ -89,14 +101,14 @@
       <div class="section-inner">
         <h2 id="seccion-porque">¿Por qué elegirme?</h2>
         <p>
-          Combino disciplina de vendedor de calle con mentalidad digital y enfoque en
-          accesibilidad. No me quedo en la teoría: pruebo, corrijo y mejoro continuamente
-          mis proyectos.
+          No me quedo en la teoría. Aprendo, pruebo y corrijo sobre proyectos reales.
+          Mi enfoque es práctico: cada app o web que creo intenta resolver un problema
+          concreto, con especial atención a la accesibilidad.
         </p>
         <ul class="simple-list">
           <li>Constancia y aprendizaje continuo.</li>
           <li>Experimentos reales con webs, apps y PWAs.</li>
-          <li>Foco en usuarios con discapacidad visual.</li>
+          <li>Compromiso con la accesibilidad para personas invidentes.</li>
         </ul>
         <a href="why.html" class="link-more">Leer más razones</a>
       </div>
@@ -106,8 +118,9 @@
       <div class="section-inner">
         <h2 id="seccion-certificados">Certificados e insignias</h2>
         <p>
-          Estoy construyendo una base sólida de formación en herramientas digitales,
-          plataformas cloud y habilidades técnicas.
+          Estoy construyendo una base de formación en herramientas digitales, plataformas
+          cloud y competencias técnicas. Aquí recopilo los certificados e insignias que
+          demuestran mi avance.
         </p>
         <a href="certificates.html" class="link-more">Ver todos mis certificados</a>
       </div>
@@ -125,7 +138,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
       <p class="footer-small">
@@ -136,9 +149,12 @@
 
   <script>
     // Año dinámico en el pie
-    document.getElementById('anio-actual').textContent = new Date().getFullYear();
+    const spanAnio = document.getElementById('anio-actual');
+    if (spanAnio) {
+      spanAnio.textContent = new Date().getFullYear();
+    }
 
-    // Menú móvil simple accesible
+    // Menú móvil accesible
     const navToggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('menu-principal');
 
@@ -154,7 +170,7 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js').catch(() => {
-          // Silenciar errores, sin romper la página
+          // Silenciar errores para no romper la página
         });
       });
     }

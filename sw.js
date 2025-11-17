@@ -1,8 +1,8 @@
-const CACHE_NAME = "lm-portafolio-v1";
-const OFFLINE_URL = "offline.html";
+// Nombre de la caché (cámbialo a v2, v3... cuando hagas cambios grandes)
+const CACHE_NAME = "lm-portfolio-v1";
 
-// Archivos a cachear
-const ASSETS = [
+// Archivos que se precachean para funcionar incluso con mala conexión
+const URLS_TO_CACHE = [
   "./",
   "./index.html",
   "./style.css",
@@ -11,69 +11,65 @@ const ASSETS = [
   "./why.html",
   "./certificates.html",
   "./contact.html",
-  "./offline.html",
-  "./logo-lm.png",
-  "./assets/Certificados_Luismi_Con_Portada.pdf",
-  "./assets/aws-knowledge-aws-for-games-cloud-game-development.png",
-  "./assets/aws-knowledge-cloud-essentials.png",
-  "./assets/icons/icon-192.png",
-  "./assets/icons/icon-512.png"
+  "./manifest.webmanifest"
 ];
 
-// Instalación: cachear recursos básicos
+// Instalación: se abre la caché y se guardan los archivos básicos
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(URLS_TO_CACHE);
+    })
   );
-  self.skipWaiting();
 });
 
-// Activación: limpiar cachés antiguas
+// Activación: limpia cachés antiguas que ya no se usen
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((k) => k !== CACHE_NAME)
-          .map((k) => caches.delete(k))
-      )
-    )
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      );
+    })
   );
-  self.clients.claim();
 });
 
-// Estrategia: Network First para navegación, Cache First para estáticos
+// Fetch: intenta primero la red y, si falla, usa la caché
 self.addEventListener("fetch", (event) => {
-  const req = event.request;
+  const request = event.request;
 
-  // Navegación (HTML / rutas de páginas)
-  if (req.mode === "navigate") {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          const clone = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(req, clone));
-          return res;
-        })
-        .catch(() =>
-          caches.match(req).then((r) => r || caches.match(OFFLINE_URL))
-        )
-    );
+  // Solo manejamos peticiones GET
+  if (request.method !== "GET") {
     return;
   }
 
-  // Estáticos: Cache First
   event.respondWith(
-    caches.match(req).then((cached) => {
-      if (cached) return cached;
+    fetch(request)
+      .then((response) => {
+        // Si la respuesta es válida, la guardamos en caché para futuras visitas
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(request, responseClone);
+        });
+        return response;
+      })
+      .catch(() => {
+        // Si no hay red, intentamos devolver lo que tengamos en caché
+        return caches.match(request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
 
-      return fetch(req)
-        .then((res) => {
-          const clone = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(req, clone));
-          return res;
-        })
-        .catch(() => cached || undefined);
-    })
+          // Si no está en caché y la petición es a la raíz, devolvemos index.html
+          if (request.mode === "navigate") {
+            return caches.match("./index.html");
+          }
+
+          // Si no hay nada mejor, dejamos que falle
+          return Promise.reject("No hay respuesta en caché y no hay red.");
+        });
+      })
   );
 });

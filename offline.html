@@ -1,19 +1,140 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sin conexión | Luis Miquel</title>
-  <link rel="stylesheet" href="/style.css" />
-  <style>
-    main{max-width:720px;margin:40px auto;background:#fff;padding:24px;border-radius:12px;text-align:center}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Mensaje de estado sin conexión del portafolio de Luis Miquel. Explica que no hay conexión a Internet y ofrece opciones para reintentar." />
+  <title>Sin conexión – Portafolio de Luis Miquel</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
-  <main>
-    <h1>Estás sin conexión</h1>
-    <p>Puedes seguir viendo esta página cuando vuelvas a tener Internet.</p>
-    <p><a class="btn" href="/">Volver al inicio</a></p>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-title">Luis Miquel</span>
+        <span class="brand-subtitle">Vendedor digital autodidacta</span>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          aria-label="Abrir o cerrar menú de navegación"
+        >
+          <span class="nav-toggle-text">Menú</span>
+        </button>
+        <ul id="menu-principal" class="nav-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Sobre mí</a></li>
+          <li><a href="apps.html">Mis Apps Web</a></li>
+          <li><a href="why.html">¿Por qué elegirme?</a></li>
+          <li><a href="certificates.html">Certificados e Insignias</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal" tabindex="-1">
+    <section class="hero" aria-labelledby="titulo-offline">
+      <div class="hero-inner">
+        <h1 id="titulo-offline">Estás sin conexión</h1>
+        <p class="hero-text">
+          En este momento no hay conexión a Internet o la red es inestable. Por eso no se
+          ha podido cargar todo el contenido que estabas intentando ver.
+        </p>
+        <p class="hero-text">
+          Algunas secciones básicas del portafolio pueden seguir funcionando si ya se han
+          visitado antes desde este dispositivo.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary" onclick="reintentar()">
+            Reintentar
+          </button>
+          <a href="index.html" class="btn btn-secondary">
+            Ir al inicio (si está en caché)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-que-hacer">
+      <div class="section-inner">
+        <h2 id="seccion-que-hacer">Qué puedes hacer ahora</h2>
+        <ul class="simple-list">
+          <li>Comprueba si tienes datos móviles o Wi-Fi activos.</li>
+          <li>Si estás en una zona con poca cobertura, intenta moverte a un lugar con mejor señal.</li>
+          <li>Pulsa el botón <strong>Reintentar</strong> para volver a cargar la página.</li>
+        </ul>
+        <p>
+          Si ya habías visitado el portafolio antes, es posible que algunas páginas (como
+          Inicio o Sobre mí) sigan funcionando gracias a la caché de la PWA.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-enlaces-caché">
+      <div class="section-inner">
+        <h2 id="seccion-enlaces-caché">Secciones que pueden estar disponibles</h2>
+        <p>
+          Estos enlaces pueden funcionar aunque no haya conexión, siempre que tu dispositivo
+          los haya guardado previamente en caché:
+        </p>
+        <ul class="simple-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Sobre mí</a></li>
+          <li><a href="apps.html">Mis Apps Web</a></li>
+          <li><a href="why.html">¿Por qué elegirme?</a></li>
+          <li><a href="certificates.html">Certificados e Insignias</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
+      <p class="footer-small">
+        Desarrollado en HTML + CSS y alojado en GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico en el pie
+    document.getElementById("anio-actual").textContent = new Date().getFullYear();
+
+    // Menú móvil simple accesible
+    const navToggle = document.querySelector(".nav-toggle");
+    const menu = document.getElementById("menu-principal");
+
+    if (navToggle && menu) {
+      navToggle.addEventListener("click", () => {
+        const expanded = navToggle.getAttribute("aria-expanded") === "true";
+        navToggle.setAttribute("aria-expanded", String(!expanded));
+        menu.classList.toggle("nav-list--open");
+      });
+    }
+
+    // Botón Reintentar
+    function reintentar() {
+      window.location.reload();
+    }
+
+    // Registro básico del Service Worker (si existe sw.js)
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {
+          // Silenciar errores, sin romper la página
+        });
+      });
+    }
+  </script>
 </body>
 </html>

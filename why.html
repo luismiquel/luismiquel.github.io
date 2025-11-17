@@ -1,75 +1,209 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>¿Por qué elegirme? | Luis Miquel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="logo-lm.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Motivos para trabajar con Luis Miquel: constancia, enfoque en accesibilidad, experiencia real con clientes y proyectos web sencillos y útiles." />
+  <title>¿Por qué elegirme? – Portafolio de Luis Miquel</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <nav>
-      <div class="wrap">
-        <ul>
-          <li>
-            <a href="index.html" aria-label="Inicio">
-              <img src="logo-lm.png" alt="Logo LM" width="40" height="40">
-            </a>
-          </li>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-title">Luis Miquel</span>
+        <span class="brand-subtitle">Vendedor digital autodidacta</span>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          aria-label="Abrir o cerrar menú de navegación"
+        >
+          <span class="nav-toggle-text">Menú</span>
+        </button>
+        <ul id="menu-principal" class="nav-list">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="about.html">Sobre mí</a></li>
           <li><a href="apps.html">Mis Apps Web</a></li>
           <li><a href="why.html" aria-current="page">¿Por qué elegirme?</a></li>
-          <li><a href="certificates.html">Certificados</a></li>
+          <li><a href="certificates.html">Certificados e Insignias</a></li>
           <li><a href="contact.html">Contacto</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main id="main" class="content">
-    <header class="page-header">
-      <h1>¿Por qué elegirme?</h1>
-      <p>Algunos puntos que resumen cómo trabajo y qué puedo aportar.</p>
-    </header>
+  <main id="contenido-principal" tabindex="-1">
+    <section class="hero" aria-labelledby="titulo-porque">
+      <div class="hero-inner">
+        <h1 id="titulo-porque">¿Por qué elegirme?</h1>
+        <p class="hero-text">
+          No vengo del camino típico del desarrollador: vengo de estar en la calle, hablando
+          con personas reales, entendiendo problemas concretos y buscando soluciones simples.
+        </p>
+        <p class="hero-text">
+          Esa combinación entre trato directo, constancia y aprendizaje digital autodidacta
+          es la base de cómo trabajo y de las apps que estoy construyendo.
+        </p>
+      </div>
+    </section>
 
-    <section class="why">
-      <article class="card">
-        <h3>Aprendizaje rápido</h3>
-        <p>Me adapto a nuevas herramientas y plataformas sin miedo a probar y equivocarme.</p>
-      </article>
+    <section class="section" aria-labelledby="seccion-constancia">
+      <div class="section-inner">
+        <h2 id="seccion-constancia">1. Constancia y trabajo diario</h2>
+        <p>
+          Mi progreso no se basa en golpes de suerte, sino en avanzar un poco cada día.
+          Esto aplica tanto a mi trabajo con clientes como a mis proyectos digitales.
+        </p>
+        <ul class="simple-list">
+          <li>Mejoras pequeñas pero continuas en mis apps y webs.</li>
+          <li>Revisión constante de accesibilidad y experiencia de usuario.</li>
+          <li>Actualización de contenidos y corrección de detalles.</li>
+        </ul>
+        <p>
+          Prefiero tener proyectos reales, aunque sean sencillos, antes que grandes ideas
+          que nunca se convierten en algo tangible.
+        </p>
+      </div>
+    </section>
 
-      <article class="card">
-        <h3>Enfoque práctico</h3>
-        <p>Priorizo soluciones útiles y claras antes que diseños complicados o difíciles de mantener.</p>
-      </article>
+    <section class="section" aria-labelledby="seccion-accesibilidad-razon">
+      <div class="section-inner">
+        <h2 id="seccion-accesibilidad-razon">2. Enfoque en accesibilidad real</h2>
+        <p>
+          Una parte importante de mi trabajo está orientada a personas ciegas o con baja
+          visión. No me limito a que la web “se vea bonita”, sino a que pueda usarse con
+          lector de pantalla, con teclado y con textos claros.
+        </p>
+        <ul class="simple-list">
+          <li>Estructura lógica de encabezados y secciones.</li>
+          <li>Controles etiquetados, con foco visible y rutas claras.</li>
+          <li>Diseños que priorizan el contenido y la legibilidad.</li>
+        </ul>
+        <p>
+          Mis recetarios accesibles y otros prototipos están pensados para ser usados por
+          personas que necesitan algo más que una interfaz bonita: necesitan claridad.
+        </p>
+      </div>
+    </section>
 
-      <article class="card">
-        <h3>Orientación a móvil</h3>
-        <p>Pienso primero en cómo se verá y usará la app desde un teléfono.</p>
-      </article>
+    <section class="section" aria-labelledby="seccion-ventas">
+      <div class="section-inner">
+        <h2 id="seccion-ventas">3. Experiencia en ventas y trato con personas</h2>
+        <p>
+          Mi experiencia en ventas me ha enseñado a escuchar, a detectar necesidades reales
+          y a explicar las cosas con palabras sencillas. Esto influye directamente en cómo
+          diseño mis apps: cada pantalla tiene que tener un propósito claro.
+        </p>
+        <ul class="simple-list">
+          <li>Comunicación directa y sin tecnicismos innecesarios.</li>
+          <li>Capacidad para entender qué necesita la otra persona.</li>
+          <li>Orientación a resultados y a soluciones prácticas.</li>
+        </ul>
+        <p>
+          No diseño para impresionar a otros desarrolladores, sino para ayudar a usuarios
+          reales a hacer algo concreto con menos fricción.
+        </p>
+      </div>
+    </section>
 
-      <article class="card">
-        <h3>Constancia</h3>
-        <p>Avanzo por pequeños pasos, mejorando versiones anteriores y puliendo detalles.</p>
-      </article>
+    <section class="section" aria-labelledby="seccion-autodidacta">
+      <div class="section-inner">
+        <h2 id="seccion-autodidacta">4. Perfil digital autodidacta</h2>
+        <p>
+          Mi formación en tecnología es principalmente autodidacta: cursos online, práctica
+          constante, documentación oficial y proyectos reales desplegados en GitHub Pages.
+        </p>
+        <p>
+          Esto me ha obligado a aprender a resolver problemas, no solo a seguir pasos
+          cerrados. Cuando algo no funciona, lo reviso, lo pregunto, lo pruebo y lo vuelvo
+          a intentar hasta que queda estable.
+        </p>
+        <p>
+          Utilizo la inteligencia artificial como apoyo: para revisar código, mejorar textos,
+          generar ideas y asegurarme de que no me dejo aspectos clave de accesibilidad.
+        </p>
+      </div>
+    </section>
 
-      <article class="card">
-        <h3>Accesibilidad</h3>
-        <p>Me interesa que las interfaces sean sencillas, legibles y sin ruido innecesario.</p>
-      </article>
+    <section class="section" aria-labelledby="seccion-proyectos-reales">
+      <div class="section-inner">
+        <h2 id="seccion-proyectos-reales">5. Proyectos que se pueden probar</h2>
+        <p>
+          Muchas personas hablan de lo que podrían hacer. Yo prefiero enseñar lo que ya
+          está en marcha, aunque todavía se pueda mejorar.
+        </p>
+        <ul class="simple-list">
+          <li>Portafolio desplegado en GitHub Pages.</li>
+          <li>Recetarios accesibles listos para probar en móvil.</li>
+          <li>Prototipos de apps orientadas a organización, voz y accesibilidad.</li>
+        </ul>
+        <p>
+          Cada uno de estos proyectos representa horas de prueba, corrección y mejora.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="seccion-colaborar">
+      <div class="section-inner">
+        <h2 id="seccion-colaborar">Cómo podría aportar en un equipo</h2>
+        <p>
+          En un equipo, puedo aportar:
+        </p>
+        <ul class="simple-list">
+          <li>Visión desde el usuario final, especialmente en contextos de discapacidad visual.</li>
+          <li>Capacidad de traducir requisitos complejos a pantallas simples.</li>
+          <li>Persistencia para ir mejorando los proyectos iterativamente.</li>
+        </ul>
+        <p>
+          Mi objetivo no es hacerlo todo solo, sino encajar en proyectos donde esta forma de
+          trabajar y esta atención a la accesibilidad sean un valor añadido.
+        </p>
+        <a href="contact.html" class="btn btn-primary">Contactar conmigo</a>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="y"></span> Luis Miquel</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
+      <p class="footer-small">
+        Desarrollado en HTML + CSS y alojado en GitHub Pages.
+      </p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Año dinámico en el pie
+    document.getElementById('anio-actual').textContent = new Date().getFullYear();
+
+    // Menú móvil simple accesible
+    const navToggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu-principal');
+
+    if (navToggle && menu) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('nav-list--open');
+      });
+    }
+
+    // Registro básico del Service Worker (si existe sw.js)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {
+          // Silenciar errores, sin romper la página
+        });
+      });
+    }
   </script>
 </body>
 </html>

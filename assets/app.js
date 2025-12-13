@@ -1,141 +1,59 @@
-﻿const $ = (sel) => document.querySelector(sel);
+﻿  // --- SEO dinámico (title/description + OG/Twitter + canonical + JSON-LD) ---
+  const clean = (s) => (s || "").toString().replace(/\s+/g, " ").trim();
+  const descText = clean(app.problem || app.tagline || `App gratuita: ${app.name}`).slice(0, 155);
 
-function setYear() {
-  const y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
-}
-
-async function loadApps() {
-  const res = await fetch("/assets/apps.json", { cache: "no-store" });
-  if (!res.ok) throw new Error("No se pudo cargar apps.json");
-  return res.json();
-}
-
-function uniq(arr) {
-  return [...new Set(arr)].filter(Boolean);
-}
-
-function appCard(app) {
-  const demo = app.demoUrl ? `<a class="btn small" href="${app.demoUrl}" target="_blank" rel="noopener">Demo</a>` : "";
-  const buy = app.buyUrl ? `<a class="btn small primary" href="${app.buyUrl}" target="_blank" rel="noopener">Comprar</a>` : "";
-  const badge = app.category ? `<span class="badge">${app.category}</span>` : "";
-
-  return `
-  <article class="card">
-    <div class="card-top">
-      <h3>${app.name}</h3>
-      ${badge}
-    </div>
-    <p class="muted">${app.tagline || ""}</p>
-    <p class="price">${app.priceText || ""}</p>
-    <div class="row">
-      <a class="btn small" href="/app.html?slug=${encodeURIComponent(app.slug)}">Ver detalles</a>
-      ${demo}
-      ${buy}
-    </div>
-  </article>`;
-}
-
-function renderCatalog(apps) {
-  const grid = $("#apps");
-  if (!grid) return;
-
-  const search = $("#search");
-  const filter = $("#filter");
-
-  const categories = uniq(apps.map(a => a.category));
-  categories.forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = c;
-    opt.textContent = c;
-    filter.appendChild(opt);
-  });
-
-  function apply() {
-    const q = (search.value || "").toLowerCase().trim();
-    const f = filter.value;
-
-    const filtered = apps.filter(a => {
-      const hay = `${a.name} ${a.tagline} ${a.problem} ${a.who} ${(a.features||[]).join(" ")}`.toLowerCase();
-      const okQ = !q || hay.includes(q);
-      const okF = (f === "all") || (a.category === f);
-      return okQ && okF && (a.status !== "hidden");
-    });
-
-    grid.innerHTML = filtered.length
-      ? filtered.map(appCard).join("")
-      : `<div class="card"><p>No hay resultados. Prueba otra búsqueda.</p></div>`;
+  // Meta description
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if (!metaDesc) {
+    metaDesc = document.createElement("meta");
+    metaDesc.setAttribute("name", "description");
+    document.head.appendChild(metaDesc);
   }
+  metaDesc.setAttribute("content", descText);
 
-  search?.addEventListener("input", apply);
-  filter?.addEventListener("change", apply);
-  apply();
-}
+  // Canonical (con slug)
+  const canonicalUrl = `https://luismiquel.github.io/app.html?slug=${encodeURIComponent(app.slug)}`;
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute("href", canonicalUrl);
 
-function renderDetail(app) {
-  const box = $("#detail");
-  if (!box) return;
-
-  const demo = app.demoUrl ? `<a class="btn" href="${app.demoUrl}" target="_blank" rel="noopener">Probar demo</a>` : "";
-  const buy = app.buyUrl ? `<a class="btn primary" href="${app.buyUrl}" target="_blank" rel="noopener">Comprar</a>` : "";
-  const feats = (app.features || []).map(f => `<span class="chip">${f}</span>`).join("");
-
-  box.innerHTML = `
-    <div class="detail-head">
-      <div>
-        <h1>${app.name}</h1>
-        <p class="sub">${app.tagline || ""}</p>
-      </div>
-      <div class="detail-cta">
-        <div class="price big">${app.priceText || ""}</div>
-        <div class="row">${demo}${buy}<a class="btn" href="/contact.html">Preguntar</a></div>
-      </div>
-    </div>
-
-    <div class="detail-grid">
-      <div class="card inner">
-        <h2>Para quién es</h2>
-        <p>${app.who || "—"}</p>
-      </div>
-      <div class="card inner">
-        <h2>El problema</h2>
-        <p>${app.problem || "—"}</p>
-      </div>
-      <div class="card inner">
-        <h2>Qué consigues</h2>
-        <ul>${(app.benefits || []).map(b => `<li>${b}</li>`).join("")}</ul>
-      </div>
-      <div class="card inner">
-        <h2>Características</h2>
-        <div class="chips">${feats || "<span class='muted'>—</span>"}</div>
-      </div>
-    </div>
-  `;
-
-  document.title = `${app.name} — Mis Apps`;
-}
-
-async function init() {
-  setYear();
-
-  const apps = await loadApps();
-
-  renderCatalog(apps);
-
-  const params = new URLSearchParams(location.search);
-  const slug = params.get("slug");
-  if (slug) {
-    const app = apps.find(a => a.slug === slug);
-    if (app) renderDetail(app);
-    else {
-      const box = $("#detail");
-      if (box) box.innerHTML = `<div class="card">App no encontrada. <a href="/">Volver</a></div>`;
+  // OG/Twitter metas
+  const setMeta = (selector, attrName, attrValue, content) => {
+    let el = document.querySelector(selector);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attrName, attrValue);
+      document.head.appendChild(el);
     }
-  }
-}
+    el.setAttribute("content", content);
+  };
 
-init().catch(err => {
-  console.error(err);
-  const grid = $("#apps");
-  if (grid) grid.innerHTML = `<div class="card"><p>Error cargando el catálogo.</p></div>`;
-});
+  const seoTitle = `${app.name} — Apps gratis | Luis Miquel`;
+  setMeta('meta[property="og:title"]', "property", "og:title", seoTitle);
+  setMeta('meta[property="og:description"]', "property", "og:description", descText);
+  setMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
+
+  setMeta('meta[name="twitter:title"]', "name", "twitter:title", seoTitle);
+  setMeta('meta[name="twitter:description"]', "name", "twitter:description", descText);
+
+  // JSON-LD por app (SoftwareApplication)
+  const old = document.getElementById("app-jsonld");
+  if (old) old.remove();
+  const s = document.createElement("script");
+  s.type = "application/ld+json";
+  s.id = "app-jsonld";
+  s.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": app.name,
+    "applicationCategory": app.category || "Application",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "url": canonicalUrl,
+    "description": descText
+  });
+  document.head.appendChild(s);

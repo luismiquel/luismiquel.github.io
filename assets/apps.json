@@ -16,5 +16,59 @@
     "buyUrl": "https://tu-checkout.com",
     "features": ["Web", "Exporta a CSV", "Sin registro"],
     "status": "available"
+  },
+  {
+    "slug": "navidad-en-la-mesa",
+    "name": "Navidad en la Mesa",
+    "tagline": "Planifica tu menú navideño y cocina sin estrés.",
+    "category": "Cocina",
+    "who": "Familias y anfitriones que organizan comidas navideñas",
+    "problem": "Entre recetas, compras y tiempos, la cena se vuelve un lío.",
+    "benefits": [
+      "Organiza platos y pasos de forma clara",
+      "Ahorra tiempo con una planificación simple",
+      "Ten el menú a mano desde el móvil"
+    ],
+    "priceText": "Demo gratis",
+    "demoUrl": "https://recetariodenavidad.netlify.app",
+    "buyUrl": "",
+    "features": ["Web", "Móvil", "Menú/recetas"],
+    "status": "available"
+  },
+  {
+    "slug": "rutinas-casa",
+    "name": "Entrenador en Casa",
+    "tagline": "Entrena en casa con rutinas claras y rápidas, sin complicarte.",
+    "category": "Fitness",
+    "who": "Personas que quieren ponerse en forma en casa sin gimnasio",
+    "problem": "Pierdes tiempo buscando rutinas y no tienes un plan sencillo que seguir.",
+    "benefits": [
+      "Rutinas listas para empezar hoy",
+      "Enfoque por objetivos (fuerza, quema, movilidad)",
+      "Diseñada para móvil y uso rápido"
+    ],
+    "priceText": "Demo gratis",
+    "demoUrl": "https://entrenador-en-casa.netlify.app",
+    "buyUrl": "",
+    "features": ["Web", "Móvil", "Rutinas"],
+    "status": "available"
+  },
+  {
+    "slug": "recetas-espanolas",
+    "name": "Recetas Españolas",
+    "tagline": "Tus recetas de siempre, organizadas y fáciles de encontrar.",
+    "category": "Cocina",
+    "who": "Personas que quieren guardar y consultar recetas rápidas desde el móvil",
+    "problem": "Tienes recetas desperdigadas y luego no encuentras la buena cuando la necesitas.",
+    "benefits": [
+      "Búsqueda rápida por nombre",
+      "Lectura cómoda desde el móvil",
+      "Colección simple y directa"
+    ],
+    "priceText": "Demo gratis",
+    "demoUrl": "https://recetas-espaolas.netlify.app",
+    "buyUrl": "",
+    "features": ["Web", "Móvil", "Recetas"],
+    "status": "available"
   }
 ]

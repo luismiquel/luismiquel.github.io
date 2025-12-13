@@ -3,45 +3,94 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>App — Detalle</title>
-  <meta name="description" content="Detalle de la app: beneficios, para quién es, demo y compra." />
-  <link rel="icon" href="/assets/favicon.svg" />
+
+  <!-- SEO dinámico (se rellena con JS según slug) -->
+  <title id="seo-title">App gratis | Luis Miquel</title>
+  <meta id="seo-desc" name="description" content="Detalle de app gratis." />
+  <link id="seo-canonical" rel="canonical" href="https://luismiquel.github.io/app.html" />
+
+  <meta id="og-title" property="og:title" content="App gratis | Luis Miquel" />
+  <meta id="og-desc" property="og:description" content="Detalle de app gratis." />
+  <meta property="og:type" content="website" />
+  <meta id="og-url" property="og:url" content="https://luismiquel.github.io/app.html" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta id="tw-title" name="twitter:title" content="App gratis | Luis Miquel" />
+  <meta id="tw-desc" name="twitter:description" content="Detalle de app gratis." />
+
+  <script id="ldjson-app" type="application/ld+json">{}</script>
+
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
+
 <body>
   <header class="container header">
-    <a class="brand" href="/">Mis Apps</a>
+    <a class="brand" href="/">Apps gratis</a>
     <nav class="nav">
-      <a href="/">Apps</a>
+      <a href="/">Catálogo</a>
       <a href="/contact.html">Contacto</a>
     </nav>
   </header>
 
   <main class="container">
-    <a class="back" href="/">← Volver al catálogo</a>
+    <section class="card" id="app-detail" aria-live="polite">
+      <h1 id="app-name">Cargando…</h1>
+      <p class="sub" id="app-tagline">Un momento.</p>
 
-    <section id="detail" class="card detail">
-      <div class="skeleton">Cargando…</div>
-    </section>
+      <div class="toolbar" style="margin-top: 1rem;">
+        <a class="btn primary" id="btn-demo" href="#" target="_blank" rel="noopener">Abrir demo</a>
+        <a class="btn" id="btn-back" href="/">Volver al catálogo</a>
+      </div>
 
-    <section class="faq">
-      <h2>Preguntas rápidas</h2>
-      <details>
-        <summary>¿Qué incluye la compra?</summary>
-        <p>Acceso/descarga según la app, instrucciones y soporte básico por email.</p>
-      </details>
-      <details>
-        <summary>¿Puedo pedir una adaptación?</summary>
-        <p>Sí. Cuéntame tu caso en el contacto y te paso una propuesta simple.</p>
-      </details>
+      <hr style="margin: 1.25rem 0; opacity: .2;" />
+
+      <div class="grid" style="grid-template-columns: 1fr; gap: 1rem;">
+        <div>
+          <h2 style="margin: 0 0 .5rem 0;">Para quién</h2>
+          <p id="app-who" class="sub" style="margin: 0;"></p>
+        </div>
+
+        <div>
+          <h2 style="margin: 0 0 .5rem 0;">Problema que resuelve</h2>
+          <p id="app-problem" class="sub" style="margin: 0;"></p>
+        </div>
+
+        <div>
+          <h2 style="margin: 0 0 .5rem 0;">Beneficios</h2>
+          <ul class="bullets" id="app-benefits"></ul>
+        </div>
+
+        <div>
+          <h2 style="margin: 0 0 .5rem 0;">Características</h2>
+          <ul class="bullets" id="app-features"></ul>
+        </div>
+
+        <div>
+          <h2 style="margin: 0 0 .5rem 0;">Precio</h2>
+          <p id="app-price" class="sub" style="margin: 0;"></p>
+        </div>
+
+        <div class="trust" style="margin-top: 1rem;">
+          <h2>¿Quieres una mejora?</h2>
+          <ul class="bullets">
+            <li>Si quieres añadir recetas/rutinas nuevas, lo preparo.</li>
+            <li>Si quieres accesibilidad extra (voz, contraste, letra grande), también.</li>
+            <li>Me escribes y te digo opciones simples.</li>
+          </ul>
+          <a class="btn" href="/contact.html">Pedir mejora</a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="container footer">
-    <span>© <span id="year"></span> Mis Apps</span>
-    <span class="muted">Hecho con HTML + Netlify</span>
+    <span>© <span id="year"></span> Luis Miquel</span>
+    <span class="muted">Hecho con HTML + GitHub Pages</span>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
   <script src="/assets/app.js" defer></script>
 </body>
 </html>

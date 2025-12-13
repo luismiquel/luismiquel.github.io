@@ -1,141 +1,223 @@
-﻿const $ = (sel) => document.querySelector(sel);
+﻿/* Catálogo + Detalle + SEO dinámico
+   - Lee /assets/apps.json
+   - Renderiza catálogo si existe #apps
+   - Renderiza detalle si existe #app-detail y slug en URL
+*/
 
-function setYear() {
-  const y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
+const APPS_URL = "/assets/apps.json";
+
+function qs(sel) { return document.querySelector(sel); }
+function qsa(sel) { return Array.from(document.querySelectorAll(sel)); }
+function esc(s="") { return String(s).replace(/[&<>"']/g, (c)=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
+
+function getParam(name) {
+  const u = new URL(window.location.href);
+  return u.searchParams.get(name);
 }
 
-async function loadApps() {
-  const res = await fetch("/assets/apps.json", { cache: "no-store" });
-  if (!res.ok) throw new Error("No se pudo cargar apps.json");
-  return res.json();
+function setDetailSeo(app) {
+  // Solo si estamos en app.html (si no existen ids, no hace nada)
+  const title = `${app.name} (Gratis) | Luis Miquel`;
+  const descBase = `${app.tagline} ${app.problem || ""}`.trim();
+  const desc = descBase.length > 155 ? descBase.slice(0, 152) + "..." : descBase;
+
+  const url = `https://luismiquel.github.io/app.html?slug=${encodeURIComponent(app.slug)}`;
+
+  const byId = (id) => document.getElementById(id);
+
+  document.title = title;
+
+  const seoDesc = byId("seo-desc");
+  if (seoDesc) seoDesc.setAttribute("content", desc);
+
+  const canon = byId("seo-canonical");
+  if (canon) canon.setAttribute("href", url);
+
+  const ogTitle = byId("og-title");
+  if (ogTitle) ogTitle.setAttribute("content", title);
+
+  const ogDesc = byId("og-desc");
+  if (ogDesc) ogDesc.setAttribute("content", desc);
+
+  const ogUrl = byId("og-url");
+  if (ogUrl) ogUrl.setAttribute("content", url);
+
+  const twTitle = byId("tw-title");
+  if (twTitle) twTitle.setAttribute("content", title);
+
+  const twDesc = byId("tw-desc");
+  if (twDesc) twDesc.setAttribute("content", desc);
+
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": app.name,
+    "applicationCategory": app.category || "WebApplication",
+    "operatingSystem": "Web",
+    "description": desc,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "url": app.demoUrl || url
+  };
+  const ldEl = byId("ldjson-app");
+  if (ldEl) ldEl.textContent = JSON.stringify(ld);
 }
 
-function uniq(arr) {
-  return [...new Set(arr)].filter(Boolean);
+function normalizeApps(raw) {
+  const arr = Array.isArray(raw) ? raw : [];
+  return arr
+    .filter(a => a && a.status !== "hidden")
+    .map(a => ({
+      slug: a.slug || "",
+      name: a.name || "App",
+      tagline: a.tagline || "",
+      category: a.category || "General",
+      who: a.who || "",
+      problem: a.problem || "",
+      benefits: Array.isArray(a.benefits) ? a.benefits : [],
+      priceText: a.priceText || "Gratis",
+      demoUrl: a.demoUrl || "",
+      buyUrl: a.buyUrl || "",
+      features: Array.isArray(a.features) ? a.features : [],
+      status: a.status || "available"
+    }))
+    .filter(a => a.slug && a.status === "available");
 }
 
-function appCard(app) {
-  const demo = app.demoUrl ? `<a class="btn small" href="${app.demoUrl}" target="_blank" rel="noopener">Demo</a>` : "";
-  const buy = app.buyUrl ? `<a class="btn small primary" href="${app.buyUrl}" target="_blank" rel="noopener">Comprar</a>` : "";
-  const badge = app.category ? `<span class="badge">${app.category}</span>` : "";
-
-  return `
-  <article class="card">
-    <div class="card-top">
-      <h3>${app.name}</h3>
-      ${badge}
-    </div>
-    <p class="muted">${app.tagline || ""}</p>
-    <p class="price">${app.priceText || ""}</p>
-    <div class="row">
-      <a class="btn small" href="/app.html?slug=${encodeURIComponent(app.slug)}">Ver detalles</a>
-      ${demo}
-      ${buy}
-    </div>
-  </article>`;
-}
-
-function renderCatalog(apps) {
-  const grid = $("#apps");
-  if (!grid) return;
-
-  const search = $("#search");
-  const filter = $("#filter");
-
-  const categories = uniq(apps.map(a => a.category));
-  categories.forEach(c => {
+function fillSelectOptions(select, apps) {
+  if (!select) return;
+  const cats = Array.from(new Set(apps.map(a => a.category))).sort((a,b)=>a.localeCompare(b));
+  // Mantiene "Todas"
+  cats.forEach(c => {
     const opt = document.createElement("option");
     opt.value = c;
     opt.textContent = c;
-    filter.appendChild(opt);
+    select.appendChild(opt);
   });
+}
+
+function cardHtml(app) {
+  const demo = app.demoUrl ? `<a class="btn primary" href="${esc(app.demoUrl)}" target="_blank" rel="noopener">Demo</a>` : "";
+  const detail = `<a class="btn" href="/app.html?slug=${encodeURIComponent(app.slug)}">Detalles</a>`;
+  return `
+    <article class="card">
+      <h3>${esc(app.name)}</h3>
+      <p class="sub">${esc(app.tagline)}</p>
+      <div class="muted" style="margin:.5rem 0;">${esc(app.category)} · ${esc(app.priceText)}</div>
+      <div class="hero-cta">${demo}${detail}</div>
+    </article>
+  `;
+}
+
+function renderCatalog(apps) {
+  const grid = document.getElementById("apps");
+  if (!grid) return;
+
+  const search = document.getElementById("search");
+  const filter = document.getElementById("filter");
+
+  fillSelectOptions(filter, apps);
 
   function apply() {
-    const q = (search.value || "").toLowerCase().trim();
-    const f = filter.value;
+    const q = (search?.value || "").trim().toLowerCase();
+    const cat = (filter?.value || "all");
 
-    const filtered = apps.filter(a => {
-      const hay = `${a.name} ${a.tagline} ${a.problem} ${a.who} ${(a.features||[]).join(" ")}`.toLowerCase();
-      const okQ = !q || hay.includes(q);
-      const okF = (f === "all") || (a.category === f);
-      return okQ && okF && (a.status !== "hidden");
-    });
+    let list = apps.slice();
+    if (cat !== "all") list = list.filter(a => a.category === cat);
+    if (q) {
+      list = list.filter(a =>
+        a.name.toLowerCase().includes(q) ||
+        a.tagline.toLowerCase().includes(q) ||
+        (a.problem || "").toLowerCase().includes(q) ||
+        (a.who || "").toLowerCase().includes(q)
+      );
+    }
 
-    grid.innerHTML = filtered.length
-      ? filtered.map(appCard).join("")
-      : `<div class="card"><p>No hay resultados. Prueba otra búsqueda.</p></div>`;
+    grid.innerHTML = list.map(cardHtml).join("") || `<div class="card"><p class="sub">No hay resultados.</p></div>`;
   }
 
   search?.addEventListener("input", apply);
   filter?.addEventListener("change", apply);
+
   apply();
 }
 
-function renderDetail(app) {
-  const box = $("#detail");
-  if (!box) return;
+function renderDetail(apps) {
+  const detail = document.getElementById("app-detail");
+  if (!detail) return;
 
-  const demo = app.demoUrl ? `<a class="btn" href="${app.demoUrl}" target="_blank" rel="noopener">Probar demo</a>` : "";
-  const buy = app.buyUrl ? `<a class="btn primary" href="${app.buyUrl}" target="_blank" rel="noopener">Comprar</a>` : "";
-  const feats = (app.features || []).map(f => `<span class="chip">${f}</span>`).join("");
+  const slug = getParam("slug");
+  if (!slug) {
+    detail.innerHTML = `
+      <h1>Falta el slug</h1>
+      <p class="sub">Vuelve al catálogo y entra desde “Detalles”.</p>
+      <a class="btn" href="/">Volver</a>
+    `;
+    return;
+  }
 
-  box.innerHTML = `
-    <div class="detail-head">
-      <div>
-        <h1>${app.name}</h1>
-        <p class="sub">${app.tagline || ""}</p>
-      </div>
-      <div class="detail-cta">
-        <div class="price big">${app.priceText || ""}</div>
-        <div class="row">${demo}${buy}<a class="btn" href="/contact.html">Preguntar</a></div>
-      </div>
-    </div>
+  const app = apps.find(a => a.slug === slug);
+  if (!app) {
+    detail.innerHTML = `
+      <h1>No encontrada</h1>
+      <p class="sub">Esta app no existe o está oculta.</p>
+      <a class="btn" href="/">Volver</a>
+    `;
+    return;
+  }
 
-    <div class="detail-grid">
-      <div class="card inner">
-        <h2>Para quién es</h2>
-        <p>${app.who || "—"}</p>
-      </div>
-      <div class="card inner">
-        <h2>El problema</h2>
-        <p>${app.problem || "—"}</p>
-      </div>
-      <div class="card inner">
-        <h2>Qué consigues</h2>
-        <ul>${(app.benefits || []).map(b => `<li>${b}</li>`).join("")}</ul>
-      </div>
-      <div class="card inner">
-        <h2>Características</h2>
-        <div class="chips">${feats || "<span class='muted'>—</span>"}</div>
-      </div>
-    </div>
-  `;
+  // SEO dinámico
+  setDetailSeo(app);
 
-  document.title = `${app.name} — Mis Apps`;
+  // Pintar datos
+  const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text || ""; };
+  setText("app-name", app.name);
+  setText("app-tagline", app.tagline);
+  setText("app-who", app.who);
+  setText("app-problem", app.problem);
+  setText("app-price", app.priceText || "Gratis");
+
+  const btnDemo = document.getElementById("btn-demo");
+  if (btnDemo) {
+    if (app.demoUrl) {
+      btnDemo.setAttribute("href", app.demoUrl);
+      btnDemo.removeAttribute("aria-disabled");
+      btnDemo.style.opacity = "1";
+      btnDemo.style.pointerEvents = "auto";
+    } else {
+      btnDemo.setAttribute("href", "#");
+      btnDemo.setAttribute("aria-disabled", "true");
+      btnDemo.style.opacity = ".5";
+      btnDemo.style.pointerEvents = "none";
+      btnDemo.textContent = "Demo no disponible";
+    }
+  }
+
+  const benefits = document.getElementById("app-benefits");
+  if (benefits) benefits.innerHTML = (app.benefits || []).map(b => `<li>${esc(b)}</li>`).join("") || "<li>—</li>";
+
+  const features = document.getElementById("app-features");
+  if (features) features.innerHTML = (app.features || []).map(f => `<li>${esc(f)}</li>`).join("") || "<li>—</li>";
 }
 
-async function init() {
-  setYear();
+async function main() {
+  try {
+    const res = await fetch(APPS_URL, { cache: "no-store" });
+    const raw = await res.json();
+    const apps = normalizeApps(raw);
 
-  const apps = await loadApps();
+    // Catálogo (index)
+    renderCatalog(apps);
 
-  renderCatalog(apps);
+    // Detalle (app.html)
+    renderDetail(apps);
 
-  const params = new URLSearchParams(location.search);
-  const slug = params.get("slug");
-  if (slug) {
-    const app = apps.find(a => a.slug === slug);
-    if (app) renderDetail(app);
-    else {
-      const box = $("#detail");
-      if (box) box.innerHTML = `<div class="card">App no encontrada. <a href="/">Volver</a></div>`;
-    }
+  } catch (e) {
+    const grid = document.getElementById("apps");
+    if (grid) grid.innerHTML = `<div class="card"><p class="sub">Error cargando apps.json</p></div>`;
+
+    const detail = document.getElementById("app-detail");
+    if (detail) detail.innerHTML = `<h1>Error</h1><p class="sub">No se ha podido cargar el detalle.</p><a class="btn" href="/">Volver</a>`;
   }
 }
 
-init().catch(err => {
-  console.error(err);
-  const grid = $("#apps");
-  if (grid) grid.innerHTML = `<div class="card"><p>Error cargando el catálogo.</p></div>`;
-});
+main();

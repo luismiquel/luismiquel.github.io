@@ -1,0 +1,20 @@
+﻿[
+  {
+    "slug": "mi-app-1",
+    "name": "Mi App 1",
+    "tagline": "Resuelve X en minutos, sin complicaciones.",
+    "category": "Productividad",
+    "who": "Freelancers y pequeños negocios",
+    "problem": "Pierdes tiempo en tareas repetitivas y te cuesta mantener el control.",
+    "benefits": [
+      "Automatiza el paso clave en 1 clic",
+      "Plantillas listas para usar",
+      "Resultados claros desde el día 1"
+    ],
+    "priceText": "Desde 19€ (pago único)",
+    "demoUrl": "https://demo-tuapp.com",
+    "buyUrl": "https://tu-checkout.com",
+    "features": ["Web", "Exporta a CSV", "Sin registro"],
+    "status": "available"
+  }
+]

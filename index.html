@@ -1,191 +1,57 @@
-<!DOCTYPE html>
-<html lang="es-ES" dir="ltr">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Portafolio de Luis Miquel, vendedor digital autodidacta. Apps accesibles, proyectos web sencillos y formación digital con foco en personas ciegas o con baja visión." />
-  <title>Portafolio de Luis Miquel</title>
-
-  <!-- Open Graph básico para compartir -->
-  <meta property="og:title" content="Portafolio de Luis Miquel – Vendedor digital autodidacta" />
-  <meta property="og:description" content="Apps accesibles, proyectos web sencillos y formación digital, con foco en personas ciegas o con baja visión." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://luismiquel.github.io/" />
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.webmanifest" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mis Apps — Demo y compra</title>
+  <meta name="description" content="Catálogo de mis apps: prueba la demo, revisa detalles y compra en segundos." />
+  <link rel="icon" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
-  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
-
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <div class="brand">
-        <span class="brand-title">Luis Miquel</span>
-        <span class="brand-subtitle">Vendedor digital autodidacta</span>
-      </div>
-
-      <nav class="main-nav" aria-label="Navegación principal">
-        <button
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="menu-principal"
-          aria-label="Abrir o cerrar menú de navegación"
-        >
-          <span class="nav-toggle-text">Menú</span>
-        </button>
-        <ul id="menu-principal" class="nav-list">
-          <li><a href="index.html" aria-current="page">Inicio</a></li>
-          <li><a href="about.html">Sobre mí</a></li>
-          <li><a href="apps.html">Mis Apps Web</a></li>
-          <li><a href="why.html">¿Por qué elegirme?</a></li>
-          <li><a href="certificates.html">Certificados e Insignias</a></li>
-          <li><a href="contact.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="container header">
+    <a class="brand" href="/">Mis Apps</a>
+    <nav class="nav">
+      <a href="/">Apps</a>
+      <a href="/contact.html">Contacto</a>
+    </nav>
   </header>
 
-  <main id="contenido-principal" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-titulo">
-      <div class="hero-inner">
-        <h1 id="hero-titulo">Portafolio de Luis Miquel</h1>
-        <p class="hero-text">
-          Soy un vendedor digital autodidacta con experiencia en trato directo con personas
-          y en creación de herramientas sencillas para la vida diaria: webs, apps accesibles
-          y proyectos pensados para móvil.
-        </p>
-        <p class="hero-text">
-          Me especializo en aplicaciones web accesibles para personas ciegas o con baja visión,
-          con navegación clara, letra grande y diseño simple.
-        </p>
-        <p class="hero-text">
-          Aquí encontrarás mis aplicaciones web, mis proyectos de accesibilidad y mis
-          certificados de formación.
-        </p>
-        <div class="hero-actions">
-          <a href="apps.html" class="btn btn-primary">Ver mis apps</a>
-          <a href="certificates.html" class="btn btn-secondary">Ver certificados</a>
-        </div>
+  <main class="container">
+    <section class="hero">
+      <h1>Apps que te ahorran tiempo y te dan resultados.</h1>
+      <p class="sub">Elige una app, prueba la demo y compra cuando lo tengas claro. Sin vueltas.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#apps">Ver catálogo</a>
+        <a class="btn" href="/contact.html">Hablar conmigo</a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="seccion-sobre-mi">
-      <div class="section-inner">
-        <h2 id="seccion-sobre-mi">Quién soy</h2>
-        <p>
-          Me llamo Luis Miquel y estoy construyendo paso a paso un perfil profesional
-          centrado en tres pilares: ventas, competencias digitales y accesibilidad.
-        </p>
-        <p>
-          He trabajado a pie de calle, en contacto directo con clientes, lo que me ha enseñado
-          a escuchar, adaptarme y ser constante. En paralelo, me he formado de manera
-          autodidacta en herramientas digitales, desarrollo web y uso de inteligencia artificial.
-        </p>
-        <p>
-          Mi objetivo es unir la experiencia práctica del día a día con soluciones digitales
-          que aporten valor a personas reales, especialmente a quienes necesitan interfaces
-          simples, claras y accesibles.
-        </p>
-        <a href="about.html" class="link-more">Leer más sobre mí</a>
-      </div>
+    <section class="toolbar">
+      <input id="search" class="input" type="search" placeholder="Buscar por nombre o problema (ej: facturas, hábitos, leads)..." />
+      <select id="filter" class="select">
+        <option value="all">Todas</option>
+      </select>
     </section>
 
-    <section class="section" aria-labelledby="seccion-apps">
-      <div class="section-inner">
-        <h2 id="seccion-apps">Mis Apps Web destacadas</h2>
-        <p>
-          Me especializo en aplicaciones web sencillas, pensadas para móvil y para usuarios
-          que necesitan claridad y accesibilidad. Muchas de ellas están diseñadas con
-          contraste alto, letra grande y navegación simple.
-        </p>
-        <ul class="simple-list">
-          <li>Recetarios accesibles con lectura por voz para personas ciegas o con baja visión.</li>
-          <li>Herramientas web ligeras que funcionan también como PWA sin conexión.</li>
-          <li>Prototipos de apps centradas en organización diaria y ayuda al usuario.</li>
-        </ul>
-        <p>
-          Todas las apps están en constante mejora, con prioridad en accesibilidad y
-          experiencia en dispositivos móviles.
-        </p>
-        <a href="apps.html" class="link-more">Ver todas mis apps</a>
-      </div>
-    </section>
+    <section id="apps" class="grid" aria-live="polite"></section>
 
-    <section class="section" aria-labelledby="seccion-porque">
-      <div class="section-inner">
-        <h2 id="seccion-porque">¿Por qué elegirme?</h2>
-        <p>
-          No vengo del mundo técnico clásico, sino del contacto directo con personas y la
-          necesidad de resolver problemas reales. Eso me obliga a hacer herramientas que
-          se entienden sin manual y que cualquier persona pueda usar.
-        </p>
-        <ul class="simple-list">
-          <li>Constancia y aprendizaje continuo.</li>
-          <li>Enfoque en accesibilidad para personas con discapacidad visual.</li>
-          <li>Proyectos reales, no solo teoría.</li>
-        </ul>
-        <a href="why.html" class="link-more">Ver más motivos</a>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="seccion-certificados">
-      <div class="section-inner">
-        <h2 id="seccion-certificados">Certificados e insignias</h2>
-        <p>
-          Estoy construyendo una base sólida de formación en herramientas digitales, nube,
-          automatización y buenas prácticas. En esta sección recopilo certificados e insignias
-          de distintas plataformas, que muestran mi progreso y compromiso con el aprendizaje.
-        </p>
-        <a href="certificates.html" class="link-more">Ver todos mis certificados</a>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="seccion-contacto">
-      <div class="section-inner">
-        <h2 id="seccion-contacto">Contacto</h2>
-        <p>
-          Si quieres comentar un proyecto, proponer una colaboración o conocer mejor cómo
-          trabajo, puedes escribirme a través del formulario de contacto.
-        </p>
-        <a href="contact.html" class="btn btn-primary">Ir a contacto</a>
-      </div>
+    <section class="trust">
+      <h2>¿Dudas antes de comprar?</h2>
+      <ul class="bullets">
+        <li>Demo disponible en la mayoría de apps (sin registro si se puede).</li>
+        <li>Respondo en 24–48h para soporte y preguntas.</li>
+        <li>Si tu caso es especial, puedo adaptar la app (presupuesto rápido).</li>
+      </ul>
+      <a class="btn" href="/contact.html">Pedir recomendación</a>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <p>&copy; <span id="anio-actual"></span> Luis Miquel. Portafolio personal.</p>
-      <p class="footer-small">
-        Desarrollado en HTML + CSS y alojado en GitHub Pages. Sin cookies, sin trackers.
-      </p>
-    </div>
+  <footer class="container footer">
+    <span>© <span id="year"></span> Mis Apps</span>
+    <span class="muted">Hecho con HTML + Netlify</span>
   </footer>
 
-  <script>
-    // Año dinámico en el pie
-    document.getElementById('anio-actual').textContent = new Date().getFullYear();
-
-    // Menú móvil simple accesible
-    const navToggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('menu-principal');
-
-    if (navToggle && menu) {
-      navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('nav-list--open');
-      });
-    }
-
-    // Registro básico del Service Worker (si existe sw.js)
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(() => {
-          // Silenciar errores, sin romper la página
-        });
-      });
-    }
-  </script>
+  <script src="/assets/app.js" defer></script>
 </body>
 </html>

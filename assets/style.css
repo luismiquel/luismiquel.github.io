@@ -70,3 +70,7 @@ a{color:inherit;text-decoration:none}
 .faq{margin:22px 0}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0}
 summary{cursor:pointer;font-weight:650}
+
+/* SEO helper (texto para indexación sin molestar) */
+.seo-text { margin-top: 24px; padding: 16px; border-radius: 12px; }
+.seo-text p { opacity: .85; }

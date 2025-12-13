@@ -1,22 +1,47 @@
-﻿<head>
+﻿<!doctype html>
+<html lang="es">
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>App — Luis Miquel</title>
-  <meta name="description" content="Detalle de la app." />
-  <link rel="canonical" href="https://luismiquel.github.io/app.html" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="App — Luis Miquel" />
-  <meta property="og:description" content="Detalle de la app." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://luismiquel.github.io/app.html" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="App — Luis Miquel" />
-  <meta name="twitter:description" content="Detalle de la app." />
-
+  <title>App — Detalle</title>
+  <meta name="description" content="Detalle de la app: beneficios, para quién es, demo y compra." />
   <link rel="icon" href="/assets/favicon.svg" />
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
+<body>
+  <header class="container header">
+    <a class="brand" href="/">Mis Apps</a>
+    <nav class="nav">
+      <a href="/">Apps</a>
+      <a href="/contact.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a class="back" href="/">← Volver al catálogo</a>
+
+    <section id="detail" class="card detail">
+      <div class="skeleton">Cargando…</div>
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas rápidas</h2>
+      <details>
+        <summary>¿Qué incluye la compra?</summary>
+        <p>Acceso/descarga según la app, instrucciones y soporte básico por email.</p>
+      </details>
+      <details>
+        <summary>¿Puedo pedir una adaptación?</summary>
+        <p>Sí. Cuéntame tu caso en el contacto y te paso una propuesta simple.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <span>© <span id="year"></span> Mis Apps</span>
+    <span class="muted">Hecho con HTML + Netlify</span>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

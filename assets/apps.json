@@ -2,10 +2,10 @@
     {
         "slug":  "navidad-en-la-mesa",
         "name":  "Navidad en la Mesa",
-        "tagline":  "Planifica tu menú navideño y cocina sin estrés.",
+        "tagline":  "Recetario navideño sencillo para organizar menús y cocinar sin estrés.",
         "category":  "Cocina",
         "who":  "Familias y anfitriones que organizan comidas navideñas",
-        "problem":  "Entre recetas, compras y tiempos, la cena se vuelve un lío.",
+        "problem":  "Durante las fiestas es difícil organizar recetas, tiempos y platos, lo que provoca estrés y desorden en la cocina.",
         "benefits":  [
                          "Organiza platos y pasos de forma clara",
                          "Ahorra tiempo con una planificación simple",
@@ -24,10 +24,10 @@
     {
         "slug":  "rutinas-casa",
         "name":  "Entrenador en Casa",
-        "tagline":  "Entrena en casa con rutinas claras y rápidas, sin complicarte.",
+        "tagline":  "Rutinas de ejercicio en casa, claras y fáciles de seguir desde el móvil.",
         "category":  "Fitness",
         "who":  "Personas que quieren ponerse en forma en casa sin gimnasio",
-        "problem":  "Pierdes tiempo buscando rutinas y no tienes un plan sencillo que seguir.",
+        "problem":  "Muchas personas quieren entrenar en casa pero no saben qué ejercicios hacer ni cómo organizar una rutina sencilla.",
         "benefits":  [
                          "Rutinas listas para empezar hoy",
                          "Enfoque por objetivos (fuerza, quema, movilidad)",
@@ -46,10 +46,10 @@
     {
         "slug":  "recetas-espanolas",
         "name":  "Recetas Españolas",
-        "tagline":  "Tus recetas de siempre, organizadas y fáciles de encontrar.",
+        "tagline":  "Recetario de cocina española con recetas claras y fáciles de consultar.",
         "category":  "Cocina",
         "who":  "Personas que quieren guardar y consultar recetas rápidas desde el móvil",
-        "problem":  "Tienes recetas desperdigadas y luego no encuentras la buena cuando la necesitas.",
+        "problem":  "Las recetas suelen estar desperdigadas o mal explicadas, lo que dificulta encontrar y seguir platos tradicionales.",
         "benefits":  [
                          "Búsqueda rápida por nombre",
                          "Lectura cómoda desde el móvil",

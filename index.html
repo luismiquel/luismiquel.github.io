@@ -6,10 +6,9 @@
 
   <title>Apps gratis para cocinar y entrenar en casa | Luis Miquel</title>
   <meta name="description" content="Apps web gratis y fáciles: recetas, rutinas y demos listas para usar desde el móvil. Sin registro." />
-
   <link rel="canonical" href="https://luismiquel.github.io/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (WhatsApp / LinkedIn / Email) -->
   <meta property="og:title" content="Apps gratis para cocinar y entrenar en casa" />
   <meta property="og:description" content="Recetas y rutinas gratis listas para usar desde el móvil. Sin registro." />
   <meta property="og:type" content="website" />
@@ -19,7 +18,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="es_ES" />
 
-  <!-- Twitter / Email -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Apps gratis para cocinar y entrenar en casa" />
   <meta name="twitter:description" content="Apps web gratuitas, simples y sin registro." />
@@ -40,3 +39,52 @@
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
+  <header class="container header">
+    <a class="brand" href="/">Apps gratis</a>
+    <nav class="nav">
+      <a href="/" aria-current="page">Catálogo</a>
+      <a href="/contact.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Apps gratis para cocinar y entrenar en casa.</h1>
+      <p class="sub">Elige una app, abre la demo y úsala desde el móvil. Sin registros, sin líos.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#apps">Ver catálogo</a>
+        <a class="btn" href="/contact.html">Escribirme</a>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <input id="search" class="input" type="search" placeholder="Buscar (ej: navidad, recetas, rutinas)..." />
+      <select id="filter" class="select">
+        <option value="all">Todas</option>
+      </select>
+    </section>
+
+    <section id="apps" class="grid" aria-live="polite"></section>
+
+    <section class="trust">
+      <h2>Apps simples, claras y listas para usar</h2>
+      <ul class="bullets">
+        <li>Gratis y pensadas para móvil.</li>
+        <li>Acceso directo a la demo.</li>
+        <li>Si quieres mejoras, me lo pides por contacto.</li>
+      </ul>
+      <a class="btn" href="/contact.html">Pedir mejora</a>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <span>© <span id="year"></span> Luis Miquel</span>
+    <span class="muted">Hecho con HTML + GitHub Pages</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

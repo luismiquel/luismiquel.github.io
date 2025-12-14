@@ -1,18 +1,23 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto — Mis Apps</title>
-  <meta name="description" content="Contacta para dudas, soporte o propuestas." />
-  <link rel="icon" href="/assets/favicon.svg" />
+  <title>Contacto | Luis Miquel</title>
+  <meta name="description" content="Contacto rápido por WhatsApp o LinkedIn para mejoras, soporte o propuestas." />
+  <link rel="canonical" href="https://luismiquel.github.io/contact.html" />
+  <meta property="og:title" content="Contacto | Luis Miquel" />
+  <meta property="og:description" content="Escríbeme por WhatsApp o LinkedIn." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luismiquel.github.io/contact.html" />
+  <meta property="og:image" content="https://luismiquel.github.io/assets/og-image.png" />
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
   <header class="container header">
-    <a class="brand" href="/">Mis Apps</a>
+    <a class="brand" href="/">Apps gratis</a>
     <nav class="nav">
-      <a href="/">Apps</a>
+      <a href="/">Catálogo</a>
       <a href="/contact.html" aria-current="page">Contacto</a>
     </nav>
   </header>
@@ -20,42 +25,32 @@
   <main class="container">
     <section class="card">
       <h1>Contacto</h1>
-      <p class="sub">Cuéntame qué necesitas y te respondo lo antes posible.</p>
+      <p class="sub">Escríbeme por WhatsApp o LinkedIn. Respondo cuando pueda.</p>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden">
-          <label>No rellenar: <input name="bot-field" /></label>
-        </p>
+      <div class="hero-cta" style="justify-content:flex-start;flex-wrap:wrap;">
+        <!-- CAMBIA TU NÚMERO: formato internacional sin + ni espacios (ej: 34600111222) -->
+        <a class="btn primary" href="https://wa.me/34600111222?text=Hola%20Luis%2C%20vengo%20de%20tu%20cat%C3%A1logo%20de%20apps%20y%20quiero%20una%20mejora%2Fconsulta." target="_blank" rel="noopener">WhatsApp</a>
 
-        <label class="label">Tu nombre
-          <input class="input" name="name" required />
-        </label>
+        <!-- CAMBIA TU LINKEDIN -->
+        <a class="btn" href="https://www.linkedin.com/in/tu-perfil/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
 
-        <label class="label">Email
-          <input class="input" type="email" name="email" required />
-        </label>
+      <h2 style="margin-top:1.25rem;">Qué enviarme (rápido)</h2>
+      <ul class="bullets">
+        <li>Qué app (Navidad / Recetas / Rutinas)</li>
+        <li>Qué problema tienes o qué mejora quieres</li>
+        <li>Qué móvil/PC usas (si hay fallo)</li>
+      </ul>
 
-        <label class="label">¿Sobre qué app?
-          <input class="input" name="app" placeholder="(opcional)" />
-        </label>
-
-        <label class="label">Mensaje
-          <textarea class="textarea" name="message" rows="6" required></textarea>
-        </label>
-
-        <button class="btn primary" type="submit">Enviar</button>
-      </form>
+      <p class="muted" style="margin-top:1rem;">Si prefieres, dime “quiero que me recomiendes la mejor app para mí”.</p>
     </section>
   </main>
 
   <footer class="container footer">
-    <span>© <span id="year"></span> Mis Apps</span>
-    <span class="muted">Hecho con HTML + Netlify</span>
+    <span>© <span id="year"></span> Luis Miquel</span>
+    <span class="muted">Hecho con HTML + GitHub Pages</span>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -74,3 +74,24 @@ summary{cursor:pointer;font-weight:650}
 /* SEO helper (texto para indexación sin molestar) */
 .seo-text { margin-top: 24px; padding: 16px; border-radius: 12px; }
 .seo-text p { opacity: .85; }
+/* CTA final */
+.cta {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px solid #eee;
+}
+.cta h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.cta p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
